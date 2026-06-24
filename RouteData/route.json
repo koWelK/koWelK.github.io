@@ -1,10 +1,20 @@
 [
-    { "line": "74"     , "stops": ["智贤镇火车站", "丰田"]                ,"company" : "KK"},
-    { "line": "374"     , "stops": ["智贤镇火车站", "燕灵湖"]                ,"company" : "KK"},
+    { "line": "74"     , "stops": ["智贤镇火车站", "丰田"]                ,"company" : "KK","type": ""},
+    { "line": "374"     , "stops": ["智贤镇火车站", "燕灵湖"]                ,"company" : "KK","type": ""},
+    { "line": "76"     , "stops": ["智贤镇医院", "燕子村"]                ,"company" : "KK","type": ""},
+    { "line": "7"     , "stops": ["寺坂桥", "寺坂桥"]                ,"company" : "KK","type": ""},
     { "line": "X7"     , "stops": ["智贤镇火车站", "寺坂桥"]                ,"company" : "KK", "type": "[快线]"},
+    { "line": "N7"     , "stops": ["北麓火车站", "新寺坂"]                ,"company" : "KK", "type": "[夜线]"},
 
-    { "line": "685"     , "stops": ["智贤镇火车站", "兴亚庄村"]            ,"company" : "FZ"},
-    { "line": "885"     , "stops": ["智贤镇火车站", "青云镇"]            ,"company" : "FZ"},
+    { "line": "80"     , "stops": ["马村", "北麓火车站"]            ,"company" : "FZ","type": ""},
+    { "line": "180"     , "stops": ["智贤镇公交场站", "燕子村北"]            ,"company" : "FZ","type": ""},
+    { "line": "680"     , "stops": ["灵秀山庄东站", "金蝉南里"]            ,"company" : "FZ","type": ""},
+    { "line": "85"     , "stops": ["智贤镇公交场站", "青云镇"]            ,"company" : "FZ","type": ""},
+    { "line": "185"     , "stops": ["春明寺", "青云镇"]            ,"company" : "FZ","type": ""},
+    { "line": "685"     , "stops": ["智贤镇火车站", "兴亚庄村"]            ,"company" : "FZ","type": ""},
+    { "line": "N85"     , "stops": ["智贤镇火车站", "青云镇"]            ,"company" : "FZ","type": "[夜线]"},
+    { "line": "E85"     , "stops": ["智贤镇公交场站", "青云镇"]            ,"company" : "FZ","type": "[快速直达专线]"},
 
-    { "line": "67"     , "stops": ["智贤镇火车站", "燕灵小区"]            ,"company" : "NT"}
+    { "line": "62"     , "stops": ["武华堂", "北麓火车站"]            ,"company" : "NT","type": ""},
+    { "line": "67"     , "stops": ["智贤镇火车站", "燕灵小区"]            ,"company" : "NT","type": ""}
 ]
