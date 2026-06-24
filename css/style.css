@@ -109,6 +109,111 @@ nav {
     text-align: center;
 }
 
+.status-module {
+    margin: 40px 0;
+    padding: 0 15px;
+}
+.status-module h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 36px;
+    font-size: 36px;
+}
+.status-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.status-card {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 4px solid #ccc;
+}
+.status-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.status-card .name-cn {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+.status-card .name-en {
+    font-size: 14px;
+    color: #888;
+    margin: 4px 0 10px;
+}
+.status-card .status-icon {
+    font-size: 48px;
+    display: block;
+    margin: 8px 0;
+}
+.status-card .status-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+}
+
+.status-icon-img {  /* 运情图标 */
+    width: 48px;    
+    height: 48px;
+    display: block;
+    margin: 8px auto;
+}
+/* 搜索框容器设为相对定位，以便内部绝对定位 */
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* 保持原样式，比如 gap、flex-wrap 等 */
+}
+
+/* 输入框：给右侧留出空间给清空按钮 */
+#searchInput {
+    padding-right: 40px;   /* 防止文字被按钮遮挡 */
+    /* 保持其他原有样式 */
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 40px 12px 20px; /* 右侧内边距加大 */
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* 清空按钮输入框右内 */
+.clear-btn {
+    position: absolute;
+    right: 115px;          /* 根据搜索按钮的宽度调整，确保不被覆盖 */
+    top: 47%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #999;
+    padding: 5px;
+    display: none;         /* 默认隐藏，有输入时显示 */
+    user-select: none;
+    z-index: 1;
+}
+.clear-btn:hover {
+    color: #333;
+}
+
+/* 当输入框有内容时显示清空按钮 */
+#searchInput:not(:placeholder-shown) + .clear-btn {
+    display: block;
+}
+/* 或者使用 JS 控制显示隐藏，下面会给出 JS 方式 */
 
 
 footer {
@@ -192,5 +297,190 @@ footer {
     footer {
         padding: 20px 15px;
         font-size: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* ===== 宣传轮播栏 ===== */
+.carousel-wrapper {
+    background-color: #f7f7fa;  
+    width: 100%;                 /* 强制屏宽 */
+    padding: 30px 0;            
+    margin: 20px 0;              /* 与上下模块的间距 */
+}
+
+.carousel-section {
+    max-width: 1200px;           /* 最大宽度限制 */
+    margin: 0 auto;              /* 水平居中 */
+    padding: 0 15px;             
+}
+
+/* ===== 轮播容器（保持不变） ===== */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+.carousel-slide {
+    flex: 0 0 100%;          /* 每张图片占满容器宽度 */
+}
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 600;       /* 限制高度，避免过高 */
+    object-fit: cover;       /* 保持比例裁剪 */
+}
+
+/* 左右按钮 */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    font-size: 28px;
+    padding: 2px 14px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s;
+    z-index: 10;
+}
+.carousel-btn:hover {
+    background: rgba(0,0,0,0.7);
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* 指示点 */
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+.carousel-dots span {
+    width: 12px;
+    height: 12px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.carousel-dots span.active {
+    background: #fff;
+    transform: scale(1.2);
+}
+
+/* 手机适配 */
+@media (max-width: 768px) {
+    .carousel-btn {
+        font-size: 20px;
+        padding: 5px 10px;
+    }
+    .carousel-slide img {
+        max-height: 360px;
+    }
+}
+
+
+/* ===== 最新情报 ===== */
+/* ===== 1. 外层：全屏背景 ===== */
+.informations-wrapper {
+    /* background-color: #f8f9fa;   */
+    padding: 40px 0;            /* 上下内边距（控制模块高度） */
+    width: 100%;
+}
+
+
+/* ===== 2. 内层：居中宽度限制 ===== */
+.informations-container {
+    max-width: 1200px;          /* 最大宽度（与导航栏保持一致） */
+    margin: 0 auto;             /* 水平居中 */
+    padding: 0 15px;            /* 手机防贴边 */
+}
+
+/* ===== 3. 核心样式自定义 ===== */
+.informations-title {
+    text-align: center;
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.informations-wrapper .module-title {
+    text-align: center;
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+/* 新闻列表样式 */
+#informationsContainer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#informationsContainer li {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e9ecef;
+    background: #ffffff;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    transition: background 0.2s;
+}
+#informationsContainer li:hover {
+    background: #f1f3f5;
+}
+#informationsContainer li a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* 手机端换行 */
+}
+#informationsContainer li a .news-date {
+    color: #868e96;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 10px;
+}
+/* 手机适配 */
+@media (max-width: 480px) {
+    #informationsContainer li a {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #informationsContainer li a .news-date {
+        margin-left: 0;
+        margin-top: 5px;
     }
 }

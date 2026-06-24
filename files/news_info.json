@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "【置顶】 OMSI 麓原 Readme",
+        "date": "2026-06-24",
+        "pdf_url":  "files/pdf/ReadMe 0.3.2.pdf"
+    },
+    {
+        "id": 2,
+        "title": "【置顶】 麓原公共交通乘车须知",
+        "date": "2026-06-20",
+        "pdf_url":  "files/pdf/passenger_notice.pdf"
+    },
+    {
+        "id": 101,
+        "title": "【线路调整】 关于新开167路、367路、280路、调整67路等10项线路优化方案的意见征求稿",
+        "date": "2026-06-21",
+        "pdf_url": "files/pdf/2026_routeadjust_01.pdf"
+    }
+]

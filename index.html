@@ -38,21 +38,75 @@
     <div class="search-wrapper">
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="线路搜索">
+            <span id="clearBtn" class="clear-btn">✕</span>
             <button id="searchBtn">搜索</button>
         </div>
         <div id="searchResults"></div> <!-- 结果显示区 -->
     </div>
+    <!-- 运行情报模块 -->
+    <section class="status-module">
+        <h2>运营状态情报</h2>
+        <div class="status-cards" id="statusCards">
+            <!-- JS动态生成 -->
+        </div>
+    </section>
+
+<div class="carousel-wrapper">
+    <!-- ===== 宣传轮播栏 ===== -->
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <!-- 图片列表（用你的图片替换 src） -->
+                <div class="carousel-slide">
+                    <img src="images/banner1.png" alt="宣传海报1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/banner2.png" alt="宣传海报2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/banner3.png" alt="宣传海报3">
+                    </div>
+                    <!-- 更多图片按此格式添加 -->
+            </div>
+            <!-- 左右切换按钮（可选） -->
+            <button class="carousel-btn prev" id="prevBtn">❮</button>
+            <button class="carousel-btn next" id="nextBtn">❯</button>
+            <!-- 指示点 -->
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+</div>
+
+<!-- ==================== -->
+<!-- 【最新情报】 -->
+<!-- ==================== -->
+<div class="informations-wrapper">   <!-- ① 外层：全宽背景 -->
+    <section class="informations-container"> <!-- ② 内层：居中限制宽度 -->
+        
+        <!-- ③ 核心层：这里放你的标题和内容 -->
+        <h2 class="informations-title">最新情报</h2>
+        <div id="informationsContainer">
+            <!-- 加载中提示 -->
+            <p style="text-align:center; color:#999;">加载中...</p>
+        </div>
+    </section>
+</div>
+
+
+
+
 
 
     <footer>
         <div class="footer-container">
             <p>&copy; 2026 麓原交通协会 & 麓原地图制作组 | 保留所有权利</p>
-            <p>(架空)麓原地图制作组  (架空)麓原交通委员会 监制 </p>
+            <p>(架空)麓原交通委员会 麓原地图制作组  监制 </p>
             <p>联系我们：odakyu@qq.com | B站 @680路 @koWel_22 </p>
             <p>本网站内容均为架空内容，与现实无关！ </p>
     </div>
-    <!-- ===== 2. 引入外部 JavaScript ===== -->
+    <!-- ===== JS导入 ===== -->
     <script src="js/main.js"></script>
     </footer>
 </body>
+    <!-- ===== 部分内容AI辅助 ===== -->
 </html>
