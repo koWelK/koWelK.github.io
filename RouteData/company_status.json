@@ -2,16 +2,16 @@
     {
         "name_cn": "纪云交通",
         "name_en": "Kikumo Transit",
-        "status": 2
+        "status": 4
     },
     {
         "name_cn": "城北客运",
         "name_en": "Chengbei P.T.",
-        "status": 2
+        "status": 4
     },
     {
         "name_cn": "福竹公交",
         "name_en": "Fuzhu P.T.",
-        "status": 2
+        "status": 4
     }
 ]
