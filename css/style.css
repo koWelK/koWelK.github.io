@@ -44,8 +44,73 @@ nav {
     transition: color 0.2s;
 }
 .nav-container ul li a:hover {
-    color: #f1c40f;
+    color: #9ac9ff;
 }
+
+/* ===== 下拉菜单容器 ===== */
+.nav-container ul li.dropdown {
+    position: relative;          /* 让子菜单相对于此定位 */
+}
+
+/* ===== 子菜单列表（默认隐藏） ===== */
+.nav-container ul li .dropdown-menu {
+    display: none;               /* 默认隐藏 */
+    position: absolute;
+    top: 100%;                   /* 紧贴父菜单下方 */
+    left: 50%;                   /* 居中定位起点 */
+    transform: translateX(-50%); /* 向左偏移一半宽度，实现居中 */
+    background-color: #364d91;
+    min-width: 160px;
+    border-radius: 8px;
+    padding: 8px 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    flex-direction: column;      /* 子菜单项垂直排列 */
+    gap: 0;                      /* 重置间隙 */
+}
+
+/* ===== 鼠标悬停时显示子菜单 ===== */
+.nav-container ul li.dropdown:hover .dropdown-menu {
+    display: flex;               /* 显示为弹性列 */
+}
+
+/* ===== 子菜单项样式 ===== */
+.nav-container ul li .dropdown-menu li {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-container ul li .dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #ecf0f1;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;         /* 文字不换行 */
+}
+
+/* 子菜单悬浮效果 */
+.nav-container ul li .dropdown-menu li a:hover {
+    background-color: #1a252f;
+    color: #0f8ff1;
+    border-radius: 0;
+}
+
+/* 第一个和最后一个子项加圆角（保持整体圆润） */
+.nav-container ul li .dropdown-menu li:first-child a {
+    border-radius: 8px 8px 0 0;
+}
+.nav-container ul li .dropdown-menu li:last-child a {
+    border-radius: 0 0 8px 8px;
+}
+
+
+
+
+
 
 /* ===== 搜索栏样式 ===== */
 .search-wrapper {
@@ -222,11 +287,11 @@ footer {
     padding: 20px 0;          /* 上下内边距 */
     text-align: center;       /* 文字居中 */
     font-size: 14px;
-    margin-top: 40px;         /* 与上方内容隔开一段距离（可选） */
+    /*margin-top: 40px;         /* 与上方内容隔开一段距离（可选） */
 }
 
 .footer-container p {
-    margin: 5px 0;            /* 段落间距 */
+    margin: 2px 0;            /* 段落间距 */
 }
 
 
@@ -484,3 +549,210 @@ footer {
         margin-top: 5px;
     }
 }
+
+/* ===== 按钮容器（可调整居中方式） ===== */
+.btn-wrapper {
+    text-align: center;      /* 水平居中 */
+    margin: 40px 0;          /* 上下间距 */
+}
+
+/* ===== 现代按钮核心样式 ===== */
+.btn-modern {
+    display: inline-flex;           /* 让文字和图标在一行 */
+    align-items: center;
+    gap: 6px;                      /* 文字与箭头间距 */
+    padding: 36px 72px;             /* 内边距，越大按钮越胖 */
+    background: linear-gradient(135deg, #581bba, #0f2e8a); /* 渐变背景 */
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 600;
+    text-decoration: none;          /* 去掉下划线 */
+    border-radius: 24px;            /* 圆角药丸形状 */
+    box-shadow: 0 4px 20px rgba(63, 15, 167, 0.4); /* 外发光 */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+/* ===== 悬浮效果（核心精髓） ===== */
+.btn-modern:hover {
+    transform: translateY(-4px) scale(1.02);  /* 上浮 + 轻微放大 */
+    box-shadow: 0 8px 35px rgba(24, 35, 137, 0.6);
+    background: linear-gradient(135deg, #a87dff, #569df9); /* 悬浮时颜色变亮 */
+}
+
+/* ===== 点击效果（反馈感） ===== */
+.btn-modern:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 2px 10px rgba(27, 160, 186, 0.3);
+}
+
+/* ===== 右侧箭头动效（让按钮更灵动） ===== */
+.btn-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+.btn-modern:hover .btn-icon {
+    transform: translateX(24px);   /* 悬浮时箭头右移 */
+}
+
+/* ===== 让按钮成为定位容器，并裁剪溢出 ===== */
+.btn-shine {
+    position: relative;          /* 让伪元素相对于按钮定位 */
+    overflow: hidden;            /* 关键：遮住飞出去的扫光条 */
+}
+
+/* ===== 扫光条（伪元素） ===== */
+.btn-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;                 /* 初始在左侧完全隐藏 */
+    width: 60%;                  /* 扫光条宽度（占按钮宽度 60%） */
+    height: 100%;
+    background: linear-gradient(
+        120deg,                  /* 斜向角度 */
+        transparent,             /* 左侧完全透明 */
+        rgba(255, 255, 255, 0.4),/* 中间半透明白色（光晕） */
+        transparent              /* 右侧完全透明 */
+    );
+    transform: skewX(-25deg);    /* 让光条倾斜，更有动感 */
+    transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;        /* 让鼠标事件穿透，不影响点击 */
+    z-index: 1;                  /* 盖在背景上，但低于文字（文字在更上层） */
+}
+
+/* ===== 悬停时：光条从左滑到右侧 ===== */
+.btn-shine:hover::before {
+    left: 120%;                  /* 飞到右侧完全隐藏 */
+}
+
+/* ===== 确保文字在光条上层（重要） ===== */
+.btn-shine .btn-text,
+.btn-shine .btn-icon {
+    position: relative;
+    z-index: 2;                  /* 文字浮在光条之上 */
+}
+
+
+
+/* ===== 1. 外层包装（控制背景和上下间距） ===== */
+.promo-wrapper {
+    background-color: #f7f7fa;   /* 极浅灰背景，区分模块 */
+    padding: 30px 0;
+    width: 100%;
+}
+
+/* ===== 1. 容器：宽度受限 + 高度自适应 + 禁止滚动 ===== */
+.promo-container {
+    max-width: 1200px;          /* 非全屏限制宽度 */
+    margin: 0 auto;
+    padding: 0 15px;
+    height: auto;               /* 高度随内容自动撑开，不固定 */
+    overflow: hidden;           /* 保险措施：绝不出现滚动条 */
+    border-radius: 16px;
+}
+
+/* ===== 2. 网格布局：每行固定 4 列，自动换行 ===== */
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 每行4列，均分宽度 */
+    gap: 16px;                              /* 卡片间距 */
+}
+
+/* ===== 3. 单个卡片：使用 aspect-ratio 固定比例，保证高度统一 ===== */
+.promo-item {
+    aspect-ratio: 16 / 9;       /* 宽高比 16:9（也可以是 4:3，看你喜好） */
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+/* 悬浮特效（微放大 + 变亮） */
+.promo-item:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    z-index: 10;
+}
+
+/* ===== 5. 图片本身 ===== */
+.promo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* 覆盖铺满，裁剪多余部分 */
+    display: block;
+}
+
+/* ===== 6. 图片上的文字遮罩 ===== */
+.promo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: #ffffff;
+    pointer-events: none;        /* 点击穿透，点击图片就能跳转 */
+}
+
+.promo-title {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.promo-desc {
+    display: block;
+    font-size: 13px;
+    opacity: 0.9;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+
+/* ===== 7. 手机适配（保持高度不变，但调整布局） ===== */
+@media (max-width: 768px) {
+    .promo-container {
+        height: 150px;           /* 手机略矮一些 */
+        padding: 0 10px;
+    }
+    .promo-grid {
+        gap: 10px;
+    }
+    .promo-title {
+        font-size: 15px;
+    }
+    .promo-desc {
+        font-size: 11px;
+    }
+}
+
+
+/* ===== 3. 核心样式自定义 ===== */
+.promo-titleN {
+    text-align: center;
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+/* ===== 页面加载淡入动画 ===== */
+body {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+
+

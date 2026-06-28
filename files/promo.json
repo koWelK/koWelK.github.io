@@ -1,0 +1,50 @@
+[
+    {
+        "title": "版本更新",
+        "desc": "0.3.2 版本已发布",
+        "img": "images/promo_newversion.png",
+        "link": "download.html"
+    },
+    {
+        "title": "线路调整实施",
+        "desc": "76路现已调整为北麓火车站-花梦路口北！",
+        "img": "images/promo_1.png",
+        "link": "lines.html?line=76"
+    },
+    {
+        "title": "燕灵·青云一日游旅行套票",
+        "desc": "八折绝赞售卖中",
+        "img": "images/promo_nopic.png",
+        "link": "advertisments/tourist_1.html"
+    },
+    {
+        "title": "麓原公交运营车辆图鉴",
+        "desc": "持续更新中",
+        "img": "images/promo_vehicels.png",
+        "link": "advertisments/vehicels_dictionary.html"
+    },
+    {
+        "title": "安全运营有我在",
+        "desc": "保障您的出行安全",
+        "img": "images/promo_nopic.png",
+        "link": "advertisments/safety.html"
+    },
+    {
+        "title": "#Photo麓原",
+        "desc": "收集您拍摄的美图",
+        "img": "images/promo_nopic.png",
+        "link": "advertisments/photograph.html"
+    },
+    {
+        "title": "680路",
+        "desc": "作者B站主页",
+        "img": "images/promo_Bilibili_680lu.png",
+        "link": "https://space.bilibili.com/3493115310639852"
+    },
+    {
+        "title": "koWel_22",
+        "desc": "作者B站主页",
+        "img": "images/promo_Bilibili_koWel_22.png",
+        "link": "https://space.bilibili.com/618860417"
+    }
+]

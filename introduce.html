@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OMSI 麓原交通协会">
+    <meta name="keywords" content="地图下载，时刻表查询">
+    <meta name="author" content="koWel_22">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <title>简介 | [架空] 麓交协</title>
+
+    <!-- ===== 引入外部 CSS ===== -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/text_page_style.css">
+
+</head>
+
+
+
+
+<body>
+
+    
+    <!-- 导航栏 -->
+    <div id="header-placeholder"></div>
+
+
+    <!-- ===== 纯文本内容区 ===== -->
+    <main class="content-page">
+        <h1>作品介绍</h1>
+        
+        <h2>OMSI 2</h2>
+
+        <p>OMSI 2是一款模拟巴士驾驶的模拟游戏，它被称作是迄今为止模拟程度最高的巴士驾驶游戏。通过试玩OMSI 2，你将学到巴士驾驶的技巧，你把自己当成一名真正的巴士司机，所有现实生活中所遇到的都会在游戏中体现出来：游戏中你将带领几十个乘客在各个城市，在这过程中你要小心路上的行人以及乘客上下车的安全，同时还会有其他伙伴跟你抢客，你要以最安全以及最快的速度把乘客送到目的地。有时你还会遭到乘客的指责说你开的不好，你将体验巴士司机的各种经历。总而言之本作是一部很能全面了解巴士驾驶的作品。</p>
+
+
+        <h2>OMSI 麓原</h2>
+
+        <p>OMSI 麓原是一部架空作品，主要由koWel_22、680路开发。设定中，麓原环境优美，是旅游胜地。主要语言是中文，同时存在使用德语、日语的地区。</p>
+
+
+        <h1>架空设定</h1>
+        
+        <h2>麓原交通委员会</h2>
+
+        <p>麓原交通委员会（简称交通委）是麓原市政府组成部门，负责麓原地区城乡交通统筹发展、交通运输和交通基础设施综合管理，并完成市政府交办的其他任务。</p>
+
+        <h2>麓原交通协会</h2>
+
+        <p>麓原交通协会（简称麓交协，原称麓原公共交通促进协会）是麓原交通委员会的下属机构，设立初衷是加强政府与人民群众的联系，推动公共交通科学发展，彰显公共交通为人民服务的根本属性。麓原交通协会主要负责协调与规范麓原地区公共交通公司的运营、管理、线路优化等日常工作，同时积极助推公共交通整体发展，助力绿色出行。</p>
+        
+        <h2>公共交通运营公司</h2>
+        
+        <h3>纪云交通</h3>
+        
+        <p>纪云市市属交通运营集团在麓原开设的公共交通运营公司。主要营业范围：公交、铁路、有轨电车、无轨电车等。在公交线网中，主要负责东部地区的线路运营。</p>
+        
+        <h3>福竹公交</h3>
+        
+        <p>福竹开设的公共交通运营公司。主要营业范围：公交、铁路、有轨电车、无轨电车等。在公交线网中，主要负责东部地区的线路运营。</p>
+        
+        <h3>城北客运</h3>
+        
+        <p>原麓原公交集团（已于2022年7月拆分）。主要营业范围：公交。在公交线网中，主要运营原麓原公交集团下辖，拆分后未被其他公司接手的线路。</p>
+
+
+
+
+        <p style="text-indent:0; color:#888; font-size:14px; margin-top:40px; border-top:1px solid #eee; padding-top:20px;">
+            最后更新：2026年6月28日
+        </p>
+    </main>
+    
+
+    <!-- 页脚 -->
+    <div id="footer-placeholder"></div>
+
+
+    <!-- <footer> -->
+    <!-- ===== JS导入 ===== -->
+    <script src="js/main.js"></script>
+    <!--</footer> -->
+    
+    <script>
+        // 加载导航栏
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data)
+            .catch(err => console.log('Header加载失败'));
+
+        // 加载页脚
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data)
+            .catch(err => console.log('Footer加载失败'));
+    </script>
+
+</body>
+    <!-- ===== 部分内容AI辅助 ===== -->
+</html>
+

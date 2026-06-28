@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OMSI 麓原交通协会">
+    <meta name="keywords" content="地图下载，时刻表查询">
+    <meta name="author" content="koWel_22">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <title>地图下载 | [架空] 麓交协</title>
+
+    <!-- ===== 引入外部 CSS ===== -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/grid_style.css">
+
+</head>
+
+
+
+<body>
+
+    
+    <!-- 导航栏 -->
+    <div id="header-placeholder"></div>
+
+    <!-- 地图下载 -->
+                <div class="grid-container">
+                    <!-- 左侧区块 -->
+                    <a href="https://pan.baidu.com/s/12yEl51p0lyySRATHDceBcg" class="grid-item item-left">
+                        <div class="overlay-text">
+                            地图下载<br>
+                            <span style="font-size: 0.6em; font-weight: normal;">版本: 0.3.2</span>
+                        </div>
+                    </a>
+                    <!-- 右上区块 -->
+                    <a href="WIP.html" class="grid-item item-right-top">
+                        <div class="overlay-text">
+                            线路图下载<br>
+                            <span style="font-size: 0.6em; font-weight: normal;">版本: 20260307</span>
+                        </div>
+                    </a>
+                    <!-- 右下区块 -->
+                    <a href="WIP.html" class="grid-item item-right-bottom">
+                        <div class="overlay-text">
+                            运营许可证<br>
+                            <span style="font-size: 0.6em; font-weight: normal;">点击浏览 (纯娱乐)</span>
+                        </div>
+                    </a>
+                </div>
+
+    
+
+    <!-- 页脚 -->
+    <div id="footer-placeholder"></div>
+
+
+    <!-- <footer> -->
+    <!-- ===== JS导入 ===== -->
+    <script src="js/main.js"></script>
+    <!--</footer> -->
+    
+    <script>
+        // 加载导航栏
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data)
+            .catch(err => console.log('Header加载失败'));
+
+        // 加载页脚
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data)
+            .catch(err => console.log('Footer加载失败'));
+    </script>
+    <script src="js/cursor.js"></script>
+
+</body>
+    <!-- ===== 部分内容AI辅助 ===== -->
+</html>
+

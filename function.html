@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OMSI 麓原交通协会">
+    <meta name="keywords" content="地图下载，时刻表查询">
+    <meta name="author" content="koWel_22">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <title>未开发区域... | [架空] 麓交协</title>
+
+    <!-- ===== 引入外部 CSS ===== -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/text_page_style.css">
+
+</head>
+
+
+
+
+<body>
+
+    
+    <!-- 导航栏 -->
+    <div id="header-placeholder"></div>
+
+
+    <!-- ===== 纯文本内容区 ===== -->
+    <main class="content-page">
+        <h1>未开发区域...</h1>
+        
+        <p>你好像来到了一片未知地带。</p>
+        
+        <h2>为什么？</h2>
+        <p>这或许是因为作者太懒没做，亦或者是作者写错了路径。无论如何，这里不会有你想要的东西。</p>
+
+        <h2>如何解决？</h2>
+        <p>点击“<a href="index.html">首页</a>”返回，或重新输入正确的网址。</p>
+    
+        <p style="text-indent:0; color:#888; font-size:14px; margin-top:40px; border-top:1px solid #eee; padding-top:20px;">
+            最后更新：2026年6月28日
+        </p>
+    </main>
+    
+
+    <!-- 页脚 -->
+    <div id="footer-placeholder"></div>
+
+
+    <!-- <footer> -->
+    <!-- ===== JS导入 ===== -->
+    <script src="js/main.js"></script>
+    <!--</footer> -->
+    
+    <script>
+        // 加载导航栏
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data)
+            .catch(err => console.log('Header加载失败'));
+
+        // 加载页脚
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data)
+            .catch(err => console.log('Footer加载失败'));
+    </script>
+
+</body>
+    <!-- ===== 部分内容AI辅助 ===== -->
+</html>
+

@@ -1,0 +1,103 @@
+/* 全局重置：去掉边距，让页面占满屏幕 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;          /* 视口高度 100% */
+            background-color: #1a1a1a; /* 分割线的颜色（间隙露出的底色） */
+        }
+
+        /* ===== 1. 网格容器（核心布局） ===== */
+        .grid-container {
+            display: grid;
+            /* 左侧占 70%，右侧占 30%（分界靠近右侧） */
+            grid-template-columns: 65% 45%;
+            /* 上下各占一半高度 */
+            grid-template-rows: 1fr 1fr;
+            /* 缝隙 4px，露出 body 的深色背景，形成分割线 */
+            /* gap: 4px; */
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* ===== 2. 每个区块的公共样式 ===== */
+        .grid-item {
+            position: relative;          /* 让内部文字可以绝对定位居中 */
+            background-size: cover;      /* 背景图片铺满 */
+            background-position: center; /* 图片居中裁剪 */
+            text-decoration: none;       /* 去掉 <a> 标签的下划线 */
+            display: flex;               /* 用 flex 让文字居中 */
+            align-items: center;
+            justify-content: center;
+            transition: filter 0.3s ease, transform 0.2s ease;
+            /* border-radius: 4px; */          /* 微圆角，更精致 */
+            overflow: hidden;            /* 裁剪溢出的圆角 */
+        }
+
+        /* 悬浮效果：微微变暗并上浮 */
+        .grid-item:hover {
+            filter: brightness(0.85);
+            transform: scale(1.025);
+            z-index: 10;
+        }
+
+        /* ===== 3. 左侧区块：占据第 1 列的第 1 行和第 2 行 ===== */
+        .item-left {
+            grid-row: 1 / 3;      /* 从第1行开始，到第3行结束（跨两行） */
+            grid-column: 1 / 2;   /* 位于第1列 */
+            background-image: url('../images/mapDL_left_bg.png'); /* ⭐ 替换为你的左侧大图 */
+        }
+
+        /* ===== 4. 右上区块：第 2 列第 1 行 ===== */
+        .item-right-top {
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+            background-image: url('../images/mapDL_RT_bg.png'); /* ⭐ 替换为你的右上图片 */
+        }
+
+        /* ===== 5. 右下区块：第 2 列第 2 行 ===== */
+        .item-right-bottom {
+            grid-row: 2 / 3;
+            grid-column: 2 / 3;
+            background-image: url('../images/mapDL_RB_bg.png'); /* ⭐ 替换为你的右下图片 */
+        }
+
+        /* ===== 6. 文字叠加层（背景上的文字） ===== */
+        .overlay-text {
+            color: #ffffff;
+            font-size: 2.5rem;          /* 默认大号字体 */
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); /* 文字阴影，增强可读性 */
+            background: rgba(0, 0, 0, 0.3); /* 半透明黑色遮罩，让文字在任何图片上都清晰 */
+            padding: 20px 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(2px);   /* 背景模糊，更显高级（可选） */
+            pointer-events: none;          /* 让鼠标点击穿透文字，直接点击到 <a> 链接 */
+            line-height: 1.4;
+        }
+
+        /* 右侧小块字体调小一点 */
+        .item-right-top .overlay-text,
+        .item-right-bottom .overlay-text {
+            font-size: 1.5rem;
+            padding: 15px 20px;
+        }
+
+        /* 手机端适配：窄屏时调整比例和字体 */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 55% 45%; /* 右侧稍微变宽，保证可点 */
+            }
+            .overlay-text {
+                font-size: 1.2rem;
+                padding: 10px 15px;
+            }
+            .item-right-top .overlay-text,
+            .item-right-bottom .overlay-text {
+                font-size: 1rem;
+            }
+        }

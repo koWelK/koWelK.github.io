@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     // ===== 6. 加载新闻列表 =====
     function loadNews() {
+        console.log('loadNews 函数已执行'); 
         var container = document.getElementById('informationsContainer');
         if (!container) return;
 
@@ -87,6 +88,43 @@ document.addEventListener('DOMContentLoaded', function() {
                 container.innerHTML = '<p style="text-align:center;color:red;">新闻加载失败，请检查数据文件</p>';
             });
     }
+
+        // ===== 加载宣传栏数据 =====
+        function loadPromo() {
+            var container = document.getElementById('promoGrid');
+            if (!container) return;
+
+            fetch('files/promo.json')
+                .then(response => {
+                    if (!response.ok) throw new Error('宣传数据加载失败');
+                    return response.json();
+                })
+                .then(items => {
+                    if (items.length === 0) {
+                        container.innerHTML = '<p style="text-align:center;color:#999;">暂无宣传内容</p>';
+                        return;
+                    }
+                    var html = '';
+                    items.forEach(item => {
+                        html += `
+                            <a href="${item.link}" class="promo-item">
+                                <img src="${item.img}" alt="${item.title}">
+                                <div class="promo-overlay">
+                                    <span class="promo-title">${item.title}</span>
+                                    <span class="promo-desc">${item.desc}</span>
+                                </div>
+                            </a>
+                        `;
+                    });
+                    container.innerHTML = html;
+                    console.log('✅ 宣传栏加载成功，共 ' + items.length + ' 项');
+                })
+                .catch(error => {
+                    console.error('宣传栏加载出错:', error);
+                    container.innerHTML = '<p style="text-align:center;color:red;">宣传内容加载失败</p>';
+                });
+        }
+
 
     // ===== 4. 搜索功能（使用线路数据） =====
     function performSearch(linesData) {
@@ -166,6 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
         // 加载新闻（独立于线路和运情数据）
         loadNews();
+        loadPromo();
 
     var clearBtn = document.getElementById('clearBtn');
     var searchInput = document.getElementById('searchInput');
@@ -268,3 +307,5 @@ document.addEventListener('DOMContentLoaded', function() {
         // 无需额外处理，因为 flex:0 0 100% 自适应
     });
 })();
+
+

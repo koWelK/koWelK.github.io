@@ -19,22 +19,13 @@
 
 
 
-
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="Head_text.png" alt="麓原交通协会 Logo">
-            </div>
-            <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="introduce.html">简介</a></li>
-                <li><a href="download.html">地图下载</a></li>
-                <li><a href="fuction.html">信息查询</a></li>
-                <li><a href="index_en.html">语言 / Language</a></li>
-            </ul>
-        </div>
-    </nav>
+
+    
+    <!-- 导航栏 -->
+    <div id="header-placeholder"></div>
+
+
     <!-- 搜索栏区块 -->
     <div class="search-wrapper">
         <div class="search-box">
@@ -44,6 +35,7 @@
         </div>
         <div id="searchResults"></div> <!-- 结果显示区 -->
     </div>
+    
     <!-- 运行情报模块 -->
     <section class="status-module">
         <h2>运营状态情报</h2>
@@ -96,21 +88,56 @@
     </section>
 </div>
 
+<!-- ===== 广告 ===== -->
+<div class="promo-wrapper">
+    <section class="promo-container">
+        <h2 class="promo-titleN">欢迎来到麓原！</h2>
+        
+        <!-- <div class="promo-grid"> -->
+            
+        <div class="promo-grid" id="promoGrid">
+            <!-- JS 会动态渲染这里 -->
+        </div>
+
+        </div>
+
+    </section>
+</div>
+
+<!-- ==================== -->
+<!-- 【地图下载】 -->
+<!-- ==================== -->
+<!-- 按钮容器（用于居中或定位） -->
+<div class="btn-wrapper">
+    <a href="download.html" class="btn-modern btn-shine">
+        <span class="btn-text">开始运转</span>
+        <span class="btn-icon">→</span>
+    </a>
+</div>
+    <!-- 页脚 -->
+    <div id="footer-placeholder"></div>
 
 
-
-
-
-    <footer>
-        <div class="footer-container">
-            <p>&copy; 2026 麓原交通协会 & 麓原地图制作组 | 保留所有权利</p>
-            <p>(架空)麓原交通委员会 麓原地图制作组  监制 </p>
-            <p>联系我们：odakyu@qq.com | B站 @680路 @koWel_22 </p>
-            <p>本网站内容均为架空内容，与现实无关！ </p>
-    </div>
+    <!-- <footer> -->
     <!-- ===== JS导入 ===== -->
     <script src="js/main.js"></script>
-    </footer>
+    <!--</footer> -->
+    
+    <script>
+        // 加载导航栏
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data)
+            .catch(err => console.log('Header加载失败'));
+
+        // 加载页脚
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data)
+            .catch(err => console.log('Footer加载失败'));
+    </script>
+
 </body>
     <!-- ===== 部分内容AI辅助 ===== -->
 </html>
+
