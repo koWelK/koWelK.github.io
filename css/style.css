@@ -583,7 +583,7 @@ footer {
 .btn-back:hover {
     transform: translateY(-1px) scale(1.01);  /* 上浮 + 轻微放大 */
     box-shadow: 0 4x 8px rgba(108, 108, 108, 0.6);
-    background: linear-gradient(135deg, #626262, #757576); /* 悬浮时颜色变亮 */
+    background: #f1f3f5; 
 }
 
 /* ===== 点击效果（反馈感） ===== */
