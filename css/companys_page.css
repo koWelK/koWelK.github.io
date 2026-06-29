@@ -133,7 +133,7 @@
 
         .company-status-badge {
             /* 原有 flex 等样式 */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 添加这行 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
         }
 .route-link {
     display: flex;
