@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var companyInfoMap = {
         'NT': { name: '城北客运', color: '#f7a919' },
         'KK': { name: '纪云交通', color: '#1976D2' },
-        'FZ': { name: '福竹公交', color: '#D32F2F' }
+        'FZ': { name: '福竹公交', color: '#D32F2F' },
+        'RW': { name: '澜海电铁', color: '#48d32f' }
         //'短代码': { name: '全称', color: '颜色值' }
     };
     var defaultCompanyName = '未知公司';
@@ -16,17 +17,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== 2. 运营状态映射表 =====
     var statusMap = {
         0: { icon: 'images/status_0.png', text: '全线网停运' },
-        1: { icon: 'images/status_1.png', text: '部分线路停运（组织调整）' },
-        2: { icon: 'images/status_1.png', text: '部分线路停运（自然灾害）' },
+        1: { icon: 'images/status_1.png', text: '部分停运（组织调整）' },
+        2: { icon: 'images/status_1.png', text: '部分停运（自然灾害）' },
         3: { icon: 'images/status_2.png', text: '晚点发生中' },
-        4: { icon: 'images/status_3.png', text: '正常运行' }
+        4: { icon: 'images/status_3.png', text: '正常运行' },
+        5: { icon: 'images/status_0.png', text: '全线停运' },
+        6: { icon: 'images/status_1.png', text: '部分停运（事故发生）' }
     };
     var borderColorMap = {
         0: '#e74c3c',
         1: '#f39c12',
         2: '#f39c12',
         3: '#f1c40f',
-        4: '#2ecc71'
+        4: '#2ecc71',
+        5: '#e74c3c',
+        6: '#f39c12'
     };
 
     // ===== 3. 渲染运情卡片 =====
@@ -186,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         renderStatusCards(companiesData);
 
+        if (searchBtn && searchInput && resultsDiv) {
         searchBtn.addEventListener('click', function() {
             performSearch(linesData);
         });
@@ -194,12 +200,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 performSearch(linesData);
             }
         });
+    }
 
         console.log('所有数据加载成功，线路数：' + linesData.length + '，公司数：' + companiesData.length);
     })
     .catch(function(error) {
         console.error('加载数据出错:', error);
-        resultsDiv.innerHTML = '<p class="no-result" style="color:red;">数据加载失败，请检查文件路径</p>';
+        if (resultsDiv) {
+            resultsDiv.innerHTML = '<p class="no-result" style="color:red;">数据加载失败，请检查文件路径</p>';
+        }
     });
     
         // 加载新闻（独立于线路和运情数据）
@@ -208,6 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var clearBtn = document.getElementById('clearBtn');
     var searchInput = document.getElementById('searchInput');
+    if (clearBtn && searchInput) {
 
     // 监听输入事件，控制清空按钮的显示/隐藏
     searchInput.addEventListener('input', function() {
@@ -225,10 +235,13 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInput.focus();
         // 如果需要清空后自动触发搜索（清空后不搜索，但如果你想，可以加上）
         // 如果你希望清空后立即显示所有线路（即不搜索），可以调用 performSearch 并传入全部数据，但这里我们只清空，让用户自己再输入。
-});
+    });
+}
 });
 // ===== 轮播图控制 =====
 (function() {
+    var track = document.getElementById('carouselTrack');
+    if (!track) return;  // ⭐ 如果不存在，直接退出
     var track = document.getElementById('carouselTrack');
     var slides = track.querySelectorAll('.carousel-slide');
     var totalSlides = slides.length;

@@ -12,8 +12,8 @@
         "link": "lines.html?line=76"
     },
     {
-        "title": "燕灵·青云一日游旅行套票",
-        "desc": "八折绝赞售卖中",
+        "title": "北麓站高架化工事进行中",
+        "desc": "休闲·工作·学习一体",
         "img": "images/promo_nopic.png",
         "link": "advertisments/tourist_1.html"
     },
@@ -30,8 +30,8 @@
         "link": "advertisments/safety.html"
     },
     {
-        "title": "#Photo麓原",
-        "desc": "收集您拍摄的美图",
+        "title": "#Debug麓原",
+        "desc": "收集您遇到的BUG/问题",
         "img": "images/promo_nopic.png",
         "link": "advertisments/photograph.html"
     },

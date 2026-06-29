@@ -14,6 +14,8 @@
     <!-- ===== 引入外部 CSS ===== -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/text_page_style.css">
+    <link rel="stylesheet" href="css/fade.css">
+    <link rel="stylesheet" href="css/companys_page.css">
 
 </head>
 
@@ -26,24 +28,31 @@
     <!-- 导航栏 -->
     <div id="header-placeholder"></div>
 
+<!-- 按钮容器（用于居中或定位） -->
+<div class="btn-back-wrapper">
+    <a href="index.html" class="btn-back">
+        <span class="btn-back-icon">←</span>
+        <span class="btn-back-text">返回</span>
+    </a>
+</div>
 
-    <!-- ===== 纯文本内容区 ===== -->
-    <main class="content-page">
-        <h1>未开发区域...</h1>
-        
-        <p>你好像来到了一片未知地带。</p>
-        
-        <h2>为什么？</h2>
-        <p>这或许是因为作者太懒没做，亦或者是作者写错了路径。无论如何，这里不会有你想要的东西。</p>
-
-        <h2>如何解决？</h2>
-        <p>点击“<a href="index.html">首页</a>”返回，或重新输入正确的网址。</p>
-        
-        <p style="text-indent:0; color:#888; font-size:14px; margin-top:40px; border-top:1px solid #eee; padding-top:20px;">
-            最后更新：2026年6月28日
-        </p>
+     <!-- ===== 公司内容区 ===== -->
+    <main class="company-page" id="companyPage">
+        <!-- JS 动态渲染，或显示“加载中” -->
+        <p style="text-align:center; color:#999; padding:40px 0;">加载中...</p>
     </main>
+
     
+        <!-- ===== 加载遮罩 ===== -->
+    <div id="loader-overlay">
+        <div class="loader-box">
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">0%</div>
+            <div class="loading-tip">加载中，预计很快完成，请稍候...</div>
+        </div>
+    </div>
 
     <!-- 页脚 -->
     <div id="footer-placeholder"></div>
@@ -52,6 +61,8 @@
     <!-- <footer> -->
     <!-- ===== JS导入 ===== -->
     <script src="js/main.js"></script>
+    <script src="js/fade.js"></script>
+    <script src="js/companys_page.js"></script>
     <!--</footer> -->
     
     <script>

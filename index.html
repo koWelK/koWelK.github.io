@@ -14,6 +14,7 @@
 
     <!-- ===== 引入外部 CSS ===== -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fade.css">
 
 </head>
 
@@ -51,16 +52,19 @@
             <div class="carousel-track" id="carouselTrack">
                 <!-- 图片列表（用你的图片替换 src） -->
                 <div class="carousel-slide">
-                    <img src="images/banner1.png" alt="宣传海报1">
+                    <img src="images/banner4.png" alt="宣传海报1">
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/banner2.png" alt="宣传海报2">
+                    <img src="images/banner3.png" alt="宣传海报2">
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/banner3.png" alt="宣传海报3">
+                    <img src="images/banner1.png" alt="宣传海报3">
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/banner4.png" alt="宣传海报4">
+                    <img src="images/banner2.png" alt="宣传海报4">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/banner5.png" alt="宣传海报5">
                 </div>
                     <!-- 更多图片按此格式添加 -->
             </div>
@@ -117,10 +121,21 @@
     <!-- 页脚 -->
     <div id="footer-placeholder"></div>
 
+        <!-- ===== 加载遮罩 ===== -->
+    <div id="loader-overlay">
+        <div class="loader-box">
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">0%</div>
+            <div class="loading-tip">加载中，预计很快完成，请稍候...</div>
+        </div>
+    </div>
 
     <!-- <footer> -->
     <!-- ===== JS导入 ===== -->
     <script src="js/main.js"></script>
+    <script src="js/fade.js"></script>
     <!--</footer> -->
     
     <script>

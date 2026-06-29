@@ -14,6 +14,7 @@
     <!-- ===== 引入外部 CSS ===== -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/text_page_style.css">
+    <link rel="stylesheet" href="css/fade.css">
 
 </head>
 
@@ -59,17 +60,17 @@
         
         <h3>福竹公交</h3>
         
-        <p>福竹开设的公共交通运营公司。主要营业范围：公交、铁路、有轨电车、无轨电车等。在公交线网中，主要负责东部地区的线路运营。</p>
+        <p>麓原福竹公交，原为麓原北部山区的区域公交公司，在麓原公交集团拆解后，承担了麓原公交集团在麓原城区以北的公交线路。福竹公司即将收购云海地区的地方性公交运营组织，并负责运营管理云海地区的公共交通线路。</p>
         
         <h3>城北客运</h3>
         
-        <p>原麓原公交集团（已于2022年7月拆分）。主要营业范围：公交。在公交线网中，主要运营原麓原公交集团下辖，拆分后未被其他公司接手的线路。</p>
+        <p>城北客运在麓原公交集团拆解后，接收了麓原公交集团在北麓、清澜地区的未被其他公司接收的公共交通线路以及高思村前往武华堂的客运班车。公司致力于为广大乘客提供更为优质的乘车体验。</p>
 
 
 
 
         <p style="text-indent:0; color:#888; font-size:14px; margin-top:40px; border-top:1px solid #eee; padding-top:20px;">
-            最后更新：2026年6月28日
+            最后更新：2026年6月29日
         </p>
     </main>
     
@@ -77,10 +78,21 @@
     <!-- 页脚 -->
     <div id="footer-placeholder"></div>
 
+        <!-- ===== 加载遮罩 ===== -->
+    <div id="loader-overlay">
+        <div class="loader-box">
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">0%</div>
+            <div class="loading-tip">加载中，预计很快完成，请稍候...</div>
+        </div>
+    </div>
 
     <!-- <footer> -->
     <!-- ===== JS导入 ===== -->
     <script src="js/main.js"></script>
+    <script src="js/fade.js"></script>
     <!--</footer> -->
     
     <script>

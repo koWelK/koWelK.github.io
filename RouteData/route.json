@@ -16,5 +16,7 @@
     { "line": "E85"     , "stops": ["智贤镇公交场站", "青云镇"]            ,"company" : "FZ","type": "[快速直达专线]"},
 
     { "line": "62"     , "stops": ["武华堂", "北麓火车站"]            ,"company" : "NT","type": ""},
-    { "line": "67"     , "stops": ["智贤镇火车站", "燕灵小区"]            ,"company" : "NT","type": ""}
+    { "line": "67"     , "stops": ["智贤镇火车站", "燕灵小区"]            ,"company" : "NT","type": ""},
+    
+    { "line": "澜海铁"     , "stops": ["北潼里 站", "云海 站"]            ,"company" : "RW","type": ""}
 ]
