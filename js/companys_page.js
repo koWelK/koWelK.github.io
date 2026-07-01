@@ -107,12 +107,19 @@
                         ` : `
                             <ul>
                                 ${companyRoutes.map(function(r) {
-                                    var encodedLine = encodeURIComponent(r.line); // 对线路号进行 URL 编码
+                                    var encodedLine = encodeURIComponent(r.line);
+                                    var statusInfo = statusMap[r.status] || { icon: '', text: '' };
+                                    // 如果 type 有内容，显示在线路号后面，否则不显示
+                                    var typeDisplay = r.type ? `<span class="route-type">${r.type}</span>` : '';
                                     return `
                                         <li>
                                             <a href="lines.html?line=${encodedLine}" class="route-link">
-                                                <span class="route-line">${r.line}路</span>
-                                                <span class="route-stops">${r.stops.join(' — ')}</span>
+                                                <span class="route-line">${r.line}路${typeDisplay}</span>
+                                                <span class="route-stops">
+                                                    ${r.stops.join(' — ')}
+                                                    ${statusInfo.icon ? `<img src="${statusInfo.icon}" alt="${statusInfo.text}" style="width:20px; height:20px; margin-left:8px; vertical-align:middle;">` : ''}
+                                                    ${statusInfo.text ? `<span style="font-size:12px; color:#888; margin-left:4px;">${statusInfo.text}</span>` : ''}
+                                                </span>
                                             </a>
                                         </li>
                                     `;

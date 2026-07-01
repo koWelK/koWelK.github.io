@@ -52,10 +52,10 @@
         }, remaining);
     }
 
-    // ===== 模拟加载进度（0% → 80%，在 6 秒内完成） =====
+    // ===== 模拟加载进度（0% → 80%，在 14 秒内完成） =====
     function startFakeProgress() {
         var fakeStart = Date.now();
-        var duration = 6000; // 6 秒走到 80%
+        var duration = 14000; // 14 秒走到 80%
         intervalId = setInterval(function() {
             var elapsed = Date.now() - fakeStart;
             var raw = (elapsed / duration) * 80;
