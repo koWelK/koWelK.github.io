@@ -1,0 +1,18 @@
+{
+    "source": "manual",
+    "manual": {
+        "city": "麓原",
+        "temp": 26,
+        "weather_code": 103,
+        "weather_text": "特大暴雨",
+        "wind": 12,
+        "rain": 55,
+        "snow": false,
+        "flash": true
+    },
+    "api": {
+        "latitude": 39.9042,
+    "longitude": 116.4074,
+    "city_name": "麓原"
+    }
+}
