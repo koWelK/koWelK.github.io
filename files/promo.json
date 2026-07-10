@@ -1,7 +1,7 @@
 [
     {
         "title": "版本更新",
-        "desc": "0.3.2 版本已发布",
+        "desc": "0.3.3 版本已发布",
         "img": "images/promo_newversion.png",
         "link": "download.html"
     },
@@ -26,8 +26,8 @@
     {
         "title": "#Debug麓原",
         "desc": "收集您遇到的BUG/问题",
-        "img": "images/promo_nopic.png",
-        "link": "advertisments/photograph.html"
+        "img": "images/Debug_QRcode.jpg",
+        "link": "https://www.wjx.top/vm/YYIhZva.aspx# "
     },
     {
         "title": "680路",
@@ -40,5 +40,11 @@
         "desc": "作者B站主页",
         "img": "images/promo_Bilibili_koWel_22.png",
         "link": "https://space.bilibili.com/618860417"
+    },
+    {
+        "title": "685路运转视频",
+        "desc": "UP主: 极速火车SS7E",
+        "img": "images/685pov.avif",
+        "link": "https://www.bilibili.com/video/BV1UmMx6yE7N"
     }
 ]

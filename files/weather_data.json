@@ -2,11 +2,12 @@
     "source": "manual",
     "manual": {
         "city": "麓原",
-        "temp": 26,
+        "tempLow": 22,
+        "tempHigh": 28,
         "weather_code": 103,
         "weather_text": "特大暴雨",
         "wind": 12,
-        "rain": 55,
+        "rain": 60,
         "snow": false,
         "flash": true
     },

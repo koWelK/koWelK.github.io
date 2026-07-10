@@ -23,34 +23,34 @@
 <body>
 
     
-    <!-- 导航栏 -->
-    <div id="header-placeholder"></div>
+<!-- 导航栏 -->
+<div id="header-placeholder"></div>
 
 
-    <!-- 搜索栏区块 -->
-    <div class="search-wrapper">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="线路搜索">
-            <span id="clearBtn" class="clear-btn">✕</span>
-            <button id="searchBtn">搜索</button>
-        </div>
-        <div id="searchResults"></div> <!-- 结果显示区 -->
+<!-- 搜索栏区块 -->
+<div class="search-wrapper">
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="线路搜索">
+        <span id="clearBtn" class="clear-btn">✕</span>
+        <button id="searchBtn">搜索</button>
     </div>
+    <div id="searchResults"></div> <!-- 结果显示区 -->
+</div>
 
 
-    <!-- 天气 -->
-    <div id="weatherStatus" class="weather-bar-container">
-    <!-- JS动态渲染 -->
-    </div>
-
-
-    <!-- 运行情报模块 -->
-    <section class="status-module">
-        <h2>运营状态情报</h2>
-        <div class="status-cards" id="statusCards">
-            <!-- JS动态生成 -->
+<!-- 运行情报模块 -->
+<section class="status-module">
+    <div class="status-header">
+        <h2>运营情报</h2>
+        <!-- 天气栏放在这里，自动靠右 -->
+        <div id="weatherStatus" class="weather-float">
+            <!-- JS动态渲染 -->
         </div>
-    </section>
+    </div>
+    <div class="status-cards" id="statusCards">
+        <!-- JS动态生成 -->
+    </div>
+</section>
 
 <div class="carousel-wrapper">
     <!-- ===== 宣传轮播栏 ===== -->
@@ -91,7 +91,7 @@
     <section class="informations-container"> <!-- ② 内层：居中限制宽度 -->
         
         <!-- ③ 核心层：这里放你的标题和内容 -->
-        <h2 class="informations-title">最新情报</h2>
+        <h2 class="informations-title">新闻</h2>
         <div id="informationsContainer">
             <!-- 加载中提示 -->
             <p style="text-align:center; color:#999;">加载中...</p>

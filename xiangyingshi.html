@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OMSI 麓原交通协会">
+    <meta name="keywords" content="地图下载，时刻表查询">
+    <meta name="author" content="koWel_22">
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <title>文件 | [架空] 麓交协</title>
+
+    <!-- ===== 引入外部 CSS ===== -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/text_page_style.css">
+    <link rel="stylesheet" href="css/fade.css">
+
+</head>
+
+
+
+
+<body>
+
+    
+    <!-- 导航栏 -->
+    <div id="header-placeholder"></div>
+
+
+    <!-- ===== 纯文本内容区 ===== -->
+    <main class="content-page">
+        <h1>麓原市道路公共交通响应式停车操作规范（试行）</h1>
+        
+        <p>为规范驾驶员进站操作，确保行车安全与服务效率，特制定本规定。</p>
+
+        <h2>第一条 本规范使用范围</h2>
+        <p>麓原市所有公交车辆。<em style="font-size:12px;">对于玩家，建议您按着这堆规范来，但不强制要求。</em></p>
+        
+
+        <h2>第二条 进站观察操作规范</h2>
+        <p>当车辆即将驶入设有候车乘客的站点时，驾驶员须首先确认车内无下客需求。如经确认有乘客下车，必须平稳行驶至车站停车标或站牌处停车。如经确认无下车乘客，必须将车辆行驶速度降低至 30公里/小时及以下，密切观察站台候车乘客动态，以确认是否有上车需求。</p>
+        
+        <h2>第三条 漏乘责任认定与处罚</h2>
+        <p>责任认定原则：若驾驶员进站时未将车速降至30公里/小时以下，且因车速过快、观察不足导致站台候车乘客未能上车（漏乘） 的，视为驾驶员操作失职。</p>
+        <p>处罚标准：发生上述“未减速且导致漏乘”情形的，对当事驾驶员处以扣罚当月部分工资的处理。</p>
+        <p>豁免条款：若驾驶员进站速度高于30公里/小时，但经核实并未发生漏乘事件，则不予以追究责任。</p>
+        <p style="font-size:16px; margin-top:40px;  padding-top:20px;"><em>温馨提示：屏幕前的你不会受到任何处罚。</em></p>
+
+
+        <p style="text-indent:0; color:#888; font-size:14px; margin-top:40px; border-top:1px solid #eee; padding-top:20px;">
+            发布时间：2026年7月10日
+        </p>
+    </main>
+    
+
+    <!-- 页脚 -->
+    <div id="footer-placeholder"></div>
+
+        <!-- ===== 加载遮罩 ===== -->
+    <div id="loader-overlay">
+        <div class="loader-box">
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">0%</div>
+            <div class="loading-tip">加载中，预计很快完成，请稍候...</div>
+        </div>
+    </div>
+
+    <!-- <footer> -->
+    <!-- ===== JS导入 ===== -->
+    <script src="js/main.js"></script>
+    <script src="js/fade.js"></script>
+    <!--</footer> -->
+    
+    <script>
+        // 加载导航栏
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data)
+            .catch(err => console.log('Header加载失败'));
+
+        // 加载页脚
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data)
+            .catch(err => console.log('Footer加载失败'));
+    </script>
+
+</body>
+    <!-- ===== 部分内容AI辅助 ===== -->
+</html>
+

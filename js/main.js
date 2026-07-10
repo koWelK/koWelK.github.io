@@ -218,9 +218,10 @@ function renderWeather(weatherObj) {
 
     container.innerHTML = `
         <span class="weather-item"> ${weatherObj.city}天气:</span>
+        <div class="weather-details">
         <span class="weather-item"><span class="weather-icon">${precipDisplay.icon}</span> <span class="weather-label">${precipDisplay.text}</span></span>
-        <span class="weather-item">温度: ${weatherObj.temp}°C</span>
-        <span class="weather-item">风速: ${weatherObj.wind} km/h</span>
+        <span class="weather-item">温度: ${weatherObj.tempLow}°C ~ ${weatherObj.tempHigh}°C</span>
+        </div>
     `;
 }
 
@@ -235,7 +236,8 @@ function renderWeather(weatherObj) {
                 const data = config.manual;
                 renderWeather({
                     city: data.city || '未知',
-                    temp: data.temp || 0,
+                    tempLow: data.tempLow || 0,
+                    tempHigh: data.tempHigh || 0,
                     weather_code: data.weather_code || 0,
                     weather_text: data.weather_text || '未知天气',
                     wind: data.wind || 0,
