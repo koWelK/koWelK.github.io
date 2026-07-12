@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="OMSI 麓原交通协会">
-    <meta name="keywords" content="地图下载，时刻表查询">
+    <meta name="keywords" content="麓原地图下载，时刻表查询">
     <meta name="author" content="koWel_22">
     
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
-    <title>未开发区域... | [架空] 麓交协</title>
+    <title>线路查询 | [架空] 麓交协</title>
 
     <!-- ===== 引入外部 CSS ===== -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/text_page_style.css">
+    <link rel="stylesheet" href="../css/route.css">
 
 </head>
 
@@ -26,23 +27,37 @@
     <!-- 导航栏 -->
     <div id="header-placeholder"></div>
 
+    <!-- 按钮容器（用于居中或定位） -->
+<div class="btn-back-wrapper">
+    <a href="javascript:void(0)" onclick="goBackOrHome();" class="btn-back">
+        <span class="btn-back-icon">←</span>
+        <span class="btn-back-text">返回</span>
+    </a>
+</div>
 
-    <!-- ===== 纯文本内容区 ===== -->
-    <main class="content-page">
-        <h1>未开发区域...</h1>
-        
-        <p>你好像来到了一片未知地带。</p>
-        
-        <h2>为什么？</h2>
-        <p>这或许是因为作者太懒没做，亦或者是作者写错了路径。无论如何，这里不会有你想要的东西。</p>
 
-        <h2>如何解决？</h2>
-        <p>点击“<a href="index.html">首页</a>”返回，或重新输入正确的网址。</p>
-    
-        <p style="text-indent:0; color:#888; font-size:14px; margin-top:40px; border-top:1px solid #eee; padding-top:20px;">
-            最后更新：2026年6月28日
-        </p>
-    </main>
+<!-- 线路信息网格 -->
+<div class="line-info-container">
+    <!-- 由 JS 动态生成 -->
+</div>
+
+    <!-- 按钮容器（用于居中或定位） -->
+<div class="line-btn-container">
+    <a href="javascript:void(0)" class="btn-line btn-direction">
+        <span class="btn-line-icon">⇄</span>
+        <span class="btn-line-text">切换方向</span>
+    </a>
+    <a href="javascript:void(0)" class="btn-line btn-refresh">
+        <span class="btn-line-icon">⟳</span>
+        <span class="btn-line-text">刷新线路状态</span>
+    </a>
+    <div class="line-station-container">
+        <!-- 由 JS 动态生成 -->
+    </div>
+</div>
+
+<!-- 停车站信息 -->
+   
     
 
     <!-- 页脚 -->
@@ -52,6 +67,7 @@
     <!-- <footer> -->
     <!-- ===== JS导入 ===== -->
     <script src="js/main.js"></script>
+    <script src="js/route.js"></script>
     <!--</footer> -->
     
     <script>

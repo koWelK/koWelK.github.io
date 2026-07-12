@@ -1,0 +1,253 @@
+/* ===== 线路信息网格 ===== */
+.line-info-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px 0px;
+    background: #f8f9fa;
+    padding: 20px 24px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    max-width: 960px;
+    margin: 30px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+.info-item .label {
+    margin: 0 auto;
+    font-size: 12px;
+    color: #868e96;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+.info-item .value {
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.info-item-route {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+.info-item-route .main {
+    margin: 0 auto;
+    font-size: 40px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* ===== 按钮容器 ===== */
+.line-btn-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px 24px;
+    background: #f8f9fa;
+    padding: 20px 24px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    max-width: 960px;
+    margin: 30px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-line {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #ffffff;
+    color: #1b1b1b;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(35, 35, 35, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.btn-line:hover {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 4px 8px rgba(108, 108, 108, 0.6);
+    background: #f1f3f5;
+}
+.btn-line:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 2px 10px rgba(150, 150, 150, 0.3);
+}
+.btn-line .btn-line-icon {
+    font-size: 16px;
+}
+.btn-line .btn-line-text {
+    font-size: 14px;
+}
+
+/* ===== 站点列表容器 ===== */
+.line-station-container {
+    grid-column: span 4;
+    max-width: 960px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f5;
+    width: 100%;
+}
+
+/* ===== 站点网格（五列） ===== */
+.station-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;  /* 车站占2份，其余各1份 = 共5列 */
+    gap: 0;
+}
+
+/* ===== 表头行 ===== */
+.station-header {
+    display: contents;
+}
+.station-header span {
+    padding: 10px 16px;
+    background: #eef2f7;
+    font-weight: 600;
+    font-size: 14px;
+    color: #2c3e50;
+    border-bottom: 2px solid #d0d7e0;
+}
+.station-header .col-station {
+    grid-column: 1 / 3;  /* 跨两列 */
+}
+.station-header .col-transfer {
+    grid-column: 3 / 4;
+}
+.station-header .col-time {
+    grid-column: 4 / 5;
+}
+.station-header .col-action {
+    grid-column: 5 / 6;
+}
+
+/* ===== 站点行 ===== */
+.station-item {
+    display: contents;
+}
+.station-item > span {
+    padding: 12px 16px;
+    background: #fafbfc;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s;
+}
+.station-item:last-child > span {
+    border-bottom: none;
+}
+
+/* 各列分配 */
+.station-item .col-station {
+    grid-column: 1 / 3;  /* 跨两列 */
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.station-item .col-transfer {
+    grid-column: 3 / 4;
+    justify-content: center;
+    font-size: 18px;
+    color: #555;
+    gap: 4px;
+}
+.station-item .col-time {
+    grid-column: 4 / 5;
+    justify-content: center;
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 14px;
+}
+.station-item .col-action {
+    grid-column: 5 / 6;
+    justify-content: center;
+}
+
+/* ===== 起点/终点徽章 ===== */
+.station-badge {
+    font-size: 12px;
+    font-weight: normal;
+    color: #2b2b2b;
+    background: #e7e7e7;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 4px;
+    display: inline-block;
+}
+
+/* ===== 操作按钮 ===== */
+.station-link {
+    display: inline-block;
+    padding: 4px 14px;
+    background: #555555;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+}
+.station-link:hover {
+    background: #252525;
+    transform: scale(1.02);
+}
+.station-link:active {
+    transform: scale(0.96);
+}
+
+/* ===== 手机适配 ===== */
+@media (max-width: 600px) {
+    .line-info-container {
+        grid-template-columns: 1fr 1fr;
+        padding: 16px;
+        gap: 8px 16px;
+    }
+    .info-item-route .main {
+        font-size: 24px;
+    }
+    .info-item .value {
+        font-size: 15px;
+    }
+    .line-btn-container {
+        gap: 8px;
+        padding: 16px;
+    }
+    .btn-line {
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+    .station-grid {
+        grid-template-columns: 1.5fr 0.8fr 0.8fr 0.8fr;
+    }
+    .station-item > span {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    .station-header span {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+    .station-item .col-transfer {
+        font-size: 15px;
+    }
+    .station-link {
+        font-size: 11px;
+        padding: 2px 10px;
+    }
+}
