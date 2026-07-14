@@ -13,7 +13,7 @@
     <title>[架空] 麓原交通协会</title>
 
     <!-- ===== 引入外部 CSS ===== -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_index.css">
     <link rel="stylesheet" href="css/fade.css">
 
 </head>
@@ -21,68 +21,46 @@
 
 
 <body>
+    <!-- 导航栏 -->
+    <div id="header-placeholder"></div>
 
-    
-<!-- 导航栏 -->
-<div id="header-placeholder"></div>
-
-
-<!-- 搜索栏区块 -->
-<div class="search-wrapper">
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="线路搜索">
-        <span id="clearBtn" class="clear-btn">✕</span>
-        <button id="searchBtn">搜索</button>
-    </div>
-    <div id="searchResults"></div> <!-- 结果显示区 -->
-</div>
-
-
-<!-- 运行情报模块 -->
-<section class="status-module">
-    <div class="status-header">
-        <h2>运营情报</h2>
-        <!-- 天气栏放在这里，自动靠右 -->
-        <div id="weatherStatus" class="weather-float">
-            <!-- JS动态渲染 -->
-        </div>
-    </div>
-    <div class="status-cards" id="statusCards">
-        <!-- JS动态生成 -->
-    </div>
-</section>
-
-<div class="carousel-wrapper">
-    <!-- ===== 宣传轮播栏 ===== -->
-    <section class="carousel-section">
-        <div class="carousel-container">
-            <div class="carousel-track" id="carouselTrack">
-                <!-- 图片列表（用你的图片替换 src） -->
-                <div class="carousel-slide">
-                    <img src="images/banner4.png" alt="宣传海报1">
+    <!-- ===== 背景轮播（作为背景图） ===== -->
+    <div class="carousel-wrapper">
+        <section class="carousel-section">
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide"><img src="https://bee-reg-ab.imagency.cn/p/771a46e9563d5fe120f355f7345ec910.png" alt="宣传海报1" onerror="this.onerror=null; this.src='images/banner1.png';"></div>
+                    <div class="carousel-slide"><img src="https://bee-reg-ab.imagency.cn/p/d4797ba4a59b128dbf40d25e4477870a.png" alt="宣传海报3" onerror="this.onerror=null; this.src='images/banner3.png';"></div>
+                    <div class="carousel-slide"><img src="https://bee-reg-ab.imagency.cn/p/fdee3e76e488e25ca1e20cca93ed0e68.png" alt="宣传海报4" onerror="this.onerror=null; this.src='images/banner4.png';"></div>
+                    <div class="carousel-slide"><img src="https://bee-reg-ab.imagency.cn/p/07cf10c8cc0d185d3a6329e1f563e9e8.png" alt="宣传海报5" onerror="this.onerror=null; this.src='images/banner5.png';"></div>
                 </div>
-                <div class="carousel-slide">
-                    <img src="images/banner3.png" alt="宣传海报2">
-                </div>
-                <div class="carousel-slide">
-                    <img src="images/banner1.png" alt="宣传海报3">
-                </div>
-                <div class="carousel-slide">
-                    <img src="images/banner2.png" alt="宣传海报4">
-                </div>
-                <div class="carousel-slide">
-                    <img src="images/banner5.png" alt="宣传海报5">
-                </div>
-                    <!-- 更多图片按此格式添加 -->
+                <button class="carousel-btn prev" id="prevBtn">❮</button>
+                <button class="carousel-btn next" id="nextBtn">❯</button>
+                <div class="carousel-dots" id="carouselDots"></div>
             </div>
-            <!-- 左右切换按钮（可选） -->
-            <button class="carousel-btn prev" id="prevBtn">❮</button>
-            <button class="carousel-btn next" id="nextBtn">❯</button>
-            <!-- 指示点 -->
-            <div class="carousel-dots" id="carouselDots"></div>
+        </section>
+    </div>
+
+    <!-- ===== 运营情报模块（半透明底板覆盖轮播） ===== -->
+    <section class="status-module">
+        <div class="status-panel">
+            <div class="status-header">
+                <h2>运营情报</h2>
+                <div id="weatherStatus" class="weather-float"><!-- JS动态渲染 --></div>
+            </div>
+            <div class="status-cards" id="statusCards"><!-- JS动态生成 --></div>
         </div>
     </section>
-</div>
+
+    <!-- 搜索栏（可保留在下方） -->
+    <div class="search-wrapper">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="线路搜索">
+            <span id="clearBtn" class="clear-btn">✕</span>
+            <button id="searchBtn">搜索</button>
+        </div>
+        <div id="searchResults"></div>
+    </div>
 
 <!-- ==================== -->
 <!-- 【最新情报】 -->
@@ -137,7 +115,7 @@
     
     <script>
         // 加载导航栏
-        fetch('components/header.html')
+        fetch('components/header_index.html')
             .then(response => response.text())
             .then(data => document.getElementById('header-placeholder').innerHTML = data)
             .catch(err => console.log('Header加载失败'));

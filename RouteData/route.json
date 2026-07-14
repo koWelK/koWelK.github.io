@@ -3,8 +3,8 @@
 {"line":"374",  "stops":["智贤镇火车站","燕灵湖"],      "company":"KK","status":4   ,"type":""},
 {"line":"76",   "stops":["北麓火车站","马村"],        "company":"KK","status":4   ,"type":""},
 {"line":"7",    "stops":["寺坂桥","寺坂桥"],            "company":"KK","status":4   ,"type":""},
-{"line":"X7",   "stops":["智贤镇火车站","寺坂桥"],      "company":"KK","status":3   ,"type":"[快线]"},
-{"line":"N7",   "stops":["北麓火车站","新寺坂"],        "company":"KK","status":3   ,"type":"[夜线]"},
+{"line":"X7",   "stops":["智贤镇火车站","寺坂桥"],      "company":"KK","status":4   ,"type":"[快线]"},
+{"line":"N7",   "stops":["北麓火车站","新寺坂"],        "company":"KK","status":4   ,"type":"[夜线]"},
 
 {"line":"80",   "stops":["马村","北麓火车站"],         "company":"FZ","status":4   ,"type":""},
 {"line":"180",  "stops":["智贤镇公交场站","燕子村北"],  "company":"FZ","status":4   ,"type":""},
