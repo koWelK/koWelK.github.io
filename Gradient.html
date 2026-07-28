@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>坡道纵曲线计算器</title>
-    <!-- 引用独立 CSS -->
-    <link rel="stylesheet" href="css\Gradient.css" />
-    <link rel="stylesheet" href="css\style.css" />
+    <meta name="description" content="OMSI 麓原交通协会" />
+    <meta name="keywords" content="坡道纵曲线计算器" />
+    <meta name="author" content="koWel_22" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <title>坡道纵曲线计算器 | [架空] 麓交协</title>
+
+    <!-- ===== 引入外部 CSS ===== -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/Gradient.css" />
 </head>
 <body>
-    <!-- 导航栏 -->
+
+    <!-- ===== 导航栏占位 ===== -->
     <div id="header-placeholder"></div>
 
-    <!-- 主页面内容 -->
+    <!-- ===== 主容器 ===== -->
     <div class="container" id="app">
+
         <!-- 标题 -->
         <div class="header">
             <h1>📐 坡道纵曲线计算器</h1>
@@ -76,24 +83,39 @@
             </div>
             <div class="key-hint">⬤ 绿色：前纵曲线 &nbsp;｜&nbsp; ⬤ 蓝色：中间直线段 &nbsp;｜&nbsp; ⬤ 红色：后纵曲线</div>
         </div>
+
     </div>
 
+    <!-- ===== 页脚占位 ===== -->
     <div id="footer-placeholder"></div>
-    <!-- 引用独立 JavaScript -->
-    <script src="js\Gradient.js"></script>
-    <script src="js\main.js"></script>
+
+    <!-- ===== JavaScript ===== -->
+    <script src="js/Gradient.js"></script>
+
+    <!-- 组件加载 -->
     <script>
         // 加载导航栏
         fetch('components/header.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('header-placeholder').innerHTML = data)
-            .catch(err => console.log('Header加载失败'));
+            .then(response => {
+                if (!response.ok) throw new Error('Header 加载失败');
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(err => console.warn('Header加载失败:', err));
 
         // 加载页脚
         fetch('components/footer.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('footer-placeholder').innerHTML = data)
-            .catch(err => console.log('Footer加载失败'));
+            .then(response => {
+                if (!response.ok) throw new Error('Footer 加载失败');
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(err => console.warn('Footer加载失败:', err));
     </script>
+
 </body>
 </html>
