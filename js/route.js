@@ -142,6 +142,7 @@ function renderStations(directionData, allDirections) {
             var total = stops.length;
             var html = `
                 <div class="station-grid">
+                    <!-- 表头（无竖线） -->
                     <div class="station-header">
                         <span class="col-station">车站</span>
                         <span class="col-transfer">换乘</span>
@@ -190,9 +191,14 @@ function renderStations(directionData, allDirections) {
 
                 html += `
                     <div class="station-item ${extraClass}">
-                        <span class="col-station">
+                        <!-- 左侧编号 + 竖线 -->
+                        <div class="station-index">
+                            <span class="station-line"></span>
                             <span class="station-number">${number}</span>
-                            <span class="station-name">${stop}</span>
+                        </div>
+                        <!-- 站点名称 + 徽章 -->
+                        <span class="station-name">
+                            ${stop}
                             ${badge}
                         </span>
                         <span class="col-transfer">${transferDisplay}</span>
@@ -205,9 +211,6 @@ function renderStations(directionData, allDirections) {
             });
             html += '</div>';
             container.innerHTML = html;
-
-            // ❌ 已移除整行点击事件绑定（只保留按钮点击）
-            // bindStationClick(container);
 
             updateDirectionButton(allDirections, directionData.direction);
         })
@@ -261,9 +264,12 @@ function renderStationsFallback(directionData, allDirections) {
         var stationUrl = 'station.html?station=' + encodeURIComponent(stop);
         html += `
             <div class="station-item ${extraClass}">
-                <span class="col-station">
+                <div class="station-index">
+                    <span class="station-line"></span>
                     <span class="station-number">${number}</span>
-                    <span class="station-name">${stop}</span>
+                </div>
+                <span class="station-name">
+                    ${stop}
                     ${badge}
                 </span>
                 <span class="col-transfer">—</span>
@@ -276,10 +282,6 @@ function renderStationsFallback(directionData, allDirections) {
     });
     html += '</div>';
     container.innerHTML = html;
-
-    // ❌ 已移除整行点击事件绑定
-    // bindStationClick(container);
-
     updateDirectionButton(allDirections, directionData.direction);
 }
 

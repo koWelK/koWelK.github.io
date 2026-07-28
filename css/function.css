@@ -1,0 +1,242 @@
+/* ============================================
+   信息查询页面专用样式
+   ============================================ */
+
+.function-page {
+    background: #f0f2f5;
+    padding: 20px 0;
+    min-height: calc(100vh - 140px);
+}
+
+.page-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ===== 标题块 ===== */
+.header-block {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #fff;
+    border-radius: 20px;
+    padding: 40px 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+.header-block h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.header-block p {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-top: 4px;
+}
+
+/* ===== 搜索块 ===== */
+.search-block {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef2f7;
+}
+.search-block .label {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 12px;
+    display: block;
+}
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.search-form input {
+    flex: 1;
+    min-width: 180px;
+    padding: 12px 18px;
+    border: 2px solid #e0e6ed;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.search-form input:focus {
+    border-color: #3b82f6;
+}
+.search-form button {
+    padding: 12px 32px;
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+.search-form button:hover {
+    background: #2563eb;
+    transform: scale(1.02);
+}
+.search-form button:active {
+    transform: scale(0.97);
+}
+.search-results {
+    margin-top: 16px;
+    display: none;
+}
+.search-results.active {
+    display: block;
+}
+.search-results .result-item {
+    padding: 10px 16px;
+    border-bottom: 1px solid #f0f2f5;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.search-results .result-item:hover {
+    background: #f8fafc;
+}
+.search-results .result-item:last-child {
+    border-bottom: none;
+}
+
+/* ===== 功能大按钮 ===== */
+.function-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.func-btn {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #ffffff;
+    border: 1px solid #eef2f7;
+    border-radius: 16px;
+    padding: 20px 28px;
+    text-decoration: none;
+    color: #1a2634;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+    width: 100%;
+}
+.func-btn:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    transform: translateX(4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+.func-btn:active {
+    transform: scale(0.99);
+}
+
+.func-btn .icon {
+    font-size: 28px;
+    width: 44px;
+    height: 44px;
+    background: #f1f5f9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.func-btn .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;   /* 改为垂直排列 */
+    justify-content: center;  /* 垂直居中（可选） */
+    gap: 2px;                 /* 标题和描述间距（可选） */
+}
+.func-btn .info .title {
+    font-weight: 600;
+    font-size: 18px;
+}
+.func-btn .info .desc {
+    font-size: 14px;
+    color: #64748b;
+    margin-top: 2px;
+}
+.func-btn .arrow {
+    color: #94a3b8;
+    font-size: 20px;
+    transition: transform 0.2s;
+}
+.func-btn:hover .arrow {
+    transform: translateX(4px);
+    color: #3b82f6;
+}
+
+/* ===== 按钮配色 ===== */
+.func-btn.blue { border-left: 5px solid #3b82f6; }
+.func-btn.green { border-left: 5px solid #22c55e; }
+.func-btn.amber { border-left: 5px solid #f59e0b; }
+.func-btn.rose { border-left: 5px solid #ef4444; }
+.func-btn.purple { border-left: 5px solid #8b5cf6; }
+.func-btn.teal { border-left: 5px solid #14b8a6; }
+
+/* ===== 底部提示 ===== */
+.footer-note {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 14px;
+    padding: 16px 0;
+    margin-top: 8px;
+}
+
+.divider-light {
+    border: none;
+    height: 1px;
+    background: #e0e6ed;        /* 浅灰色 */
+    margin: 24px 0;             /* 上下间距 */
+    opacity: 0.8;
+}
+/* ============================================
+   响应式适配
+   ============================================ */
+@media (max-width: 600px) {
+    .function-page {
+        padding: 12px 0;
+    }
+    .header-block {
+        padding: 28px 20px;
+    }
+    .header-block h1 {
+        font-size: 22px;
+    }
+    .func-btn {
+        padding: 16px 18px;
+        gap: 14px;
+    }
+    .func-btn .icon {
+        font-size: 22px;
+        width: 38px;
+        height: 38px;
+    }
+    .func-btn .info .title {
+        font-size: 16px;
+    }
+    .search-block {
+        padding: 18px 16px;
+    }
+    .search-form input {
+        font-size: 14px;
+        padding: 10px 14px;
+        min-width: 120px;
+    }
+    .search-form button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}

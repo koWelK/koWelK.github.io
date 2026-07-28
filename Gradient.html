@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>坡道纵曲线计算器</title>
+    <!-- 引用独立 CSS -->
+    <link rel="stylesheet" href="css\Gradient.css" />
+    <link rel="stylesheet" href="css\style.css" />
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div id="header-placeholder"></div>
+
+    <!-- 主页面内容 -->
+    <div class="container" id="app">
+        <!-- 标题 -->
+        <div class="header">
+            <h1>📐 坡道纵曲线计算器</h1>
+            <span class="badge">三段平滑 · 相切</span>
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="input-grid">
+            <div class="input-group">
+                <label>坡道总长度 <span class="unit">L (m)</span></label>
+                <input type="number" id="inputLength" value="120" step="0.1" min="0.1" placeholder="例如 120" />
+                <div class="hint">水平投影总长度</div>
+            </div>
+            <div class="input-group">
+                <label>前后高度差 <span class="unit">H (m)</span></label>
+                <input type="number" id="inputHeight" value="6.0" step="0.01" min="0" placeholder="例如 6.0" />
+                <div class="hint">终点与起点的高程差</div>
+            </div>
+            <div class="input-group">
+                <label>纵曲线长度 <span class="unit">l (m)</span></label>
+                <input type="number" id="inputCurve" value="25" step="0.1" min="0" placeholder="例如 25" />
+                <div class="hint">单个纵曲线长度（前后各一个）</div>
+            </div>
+        </div>
+
+        <!-- 操作按钮 -->
+        <div class="action-row">
+            <button class="btn" id="calcBtn">计算</button>
+            <button class="btn btn-secondary" id="resetBtn">↺ 重置</button>
+        </div>
+
+        <!-- 错误信息 -->
+        <div class="error-msg" id="errorMsg"></div>
+
+        <!-- 结果区域 -->
+        <div class="result-area" id="resultArea">
+            <!-- 坡度摘要 -->
+            <div class="summary-cards" id="summaryCards"></div>
+
+            <!-- 数据表格 -->
+            <div class="data-table-wrap">
+                <table class="data-table" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>区段</th>
+                            <th>长度 (m)</th>
+                            <th>高度变化 (m)</th>
+                            <th>起点高程 (m)</th>
+                            <th>终点高程 (m)</th>
+                            <th>坡度</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+
+            <!-- 图表 -->
+            <div class="chart-wrap">
+                <canvas id="chartCanvas" width="900" height="480"></canvas>
+            </div>
+            <div class="key-hint">⬤ 绿色：前纵曲线 &nbsp;｜&nbsp; ⬤ 蓝色：中间直线段 &nbsp;｜&nbsp; ⬤ 红色：后纵曲线</div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <!-- 引用独立 JavaScript -->
+    <script src="js\Gradient.js"></script>
+    <script src="js\main.js"></script>
+    <script>
+        // 加载导航栏
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data)
+            .catch(err => console.log('Header加载失败'));
+
+        // 加载页脚
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data)
+            .catch(err => console.log('Footer加载失败'));
+    </script>
+</body>
+</html>

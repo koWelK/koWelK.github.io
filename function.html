@@ -6,62 +6,120 @@
     <meta name="description" content="OMSI 麓原交通协会">
     <meta name="keywords" content="地图下载，时刻表查询">
     <meta name="author" content="koWel_22">
-    
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-
-    <title>未开发区域... | [架空] 麓交协</title>
+    <title>信息查询 | [架空] 麓交协</title>
 
     <!-- ===== 引入外部 CSS ===== -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/text_page_style.css">
-
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/function.css">
 </head>
-
-
-
-
 <body>
 
-    
     <!-- 导航栏 -->
     <div id="header-placeholder"></div>
 
+    <!-- ===== 主内容 ===== -->
+    <main class="function-page">
+        <div class="page-container">
 
-    <!-- ===== 纯文本内容区 ===== -->
-    <main class="content-page">
-        <h1>未开发区域...</h1>
-        
-        <p>你好像来到了一片未知地带。</p>
-        
-        <h2>为什么？</h2>
-        <p>这或许是因为作者太懒没做，亦或者是作者写错了路径。无论如何，这里不会有你想要的东西。</p>
+            <!-- 标题块 -->
+            <div class="header-block">
+                <h1>
+                    信息查询中心
+                </h1>
+                <p>页面链接·其他功能</p>
+            </div>
 
-        <h2>如何解决？</h2>
-        <p>点击“<a href="index.html">首页</a>”返回，或重新输入正确的网址。</p>
-    
-        <p style="text-indent:0; color:#888; font-size:14px; margin-top:40px; border-top:1px solid #eee; padding-top:20px;">
-            最后更新：2026年6月28日
-        </p>
+            <!-- 搜索块 -->
+            <div class="search-block">
+                <span class="label">线路搜索</span>
+                <div class="search-form">
+                    <input type="text" id="searchInput" placeholder="输入线路名或站点…">
+                    <button id="searchBtn">搜索</button>
+                </div>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+
+            <!-- 功能大按钮（每行一个） -->
+            <div class="function-grid">
+
+                <a href="introduce.html" class="func-btn blue">
+                    <span class="info">
+                        <span class="title">简介</span>
+                        <span class="desc">地图介绍及设定</span>
+                    </span>
+                    <span class="arrow">→</span>
+                </a>
+
+                <a href="download.html" class="func-btn amber">
+                    <span class="info">
+                        <span class="title">地图下载</span>
+                        <span class="desc">获取最新的地图及线路图</span>
+                    </span>
+                    <span class="arrow">→</span>
+                </a>
+
+                <a href="https://www.wjx.top/vm/YYIhZva.aspx#" class="func-btn green">
+                    <span class="info">
+                        <span class="title">问题反馈</span>
+                        <span class="desc">BUG&建议&意见 请在此处反馈</span>
+                    </span>
+                    <span class="arrow">→</span>
+                </a>
+
+                <a href="vehicels_dictionary.html" class="func-btn rose">
+                    <span class="info">
+                        <span class="title">车辆图鉴</span>
+                        <span class="desc">查看各公司运营及非运营车辆</span>
+                    </span>
+                    <span class="arrow">→</span>
+                </a>
+
+                <div class="footer-note">
+                    数据仅供娱乐参考
+                </div>
+                <hr class="divider-light">
+
+                <a href="Gradient.html" class="func-btn purple">
+                    <span class="info">
+                        <span class="title">坡度计算器</span>
+                        <span class="desc">根据纵曲线长、坡度长、高度差计算坡度</span>
+                    </span>
+                    <span class="arrow">→</span>
+                </a>
+
+                <a href="help.html" class="func-btn teal">
+                    <span class="info">
+                        <span class="title">帮助中心</span>
+                        <span class="desc">使用指南与常见问题解答</span>
+                    </span>
+                    <span class="arrow">→</span>
+                </a>
+
+
+                <div class="footer-note">
+                    数据仅供娱乐参考
+                </div>
+                <hr class="divider-light">
+            </div>
+
+        </div>
     </main>
-    
 
     <!-- 页脚 -->
     <div id="footer-placeholder"></div>
 
-
-    <!-- <footer> -->
-    <!-- ===== JS导入 ===== -->
+    <!-- ===== 引入 JavaScript ===== -->
     <script src="js/main.js"></script>
-    <!--</footer> -->
-    
+    <script src="js/function.js"></script>
+
     <script>
-        // 加载导航栏
+        // 加载导航栏和页脚
         fetch('components/header.html')
             .then(response => response.text())
             .then(data => document.getElementById('header-placeholder').innerHTML = data)
             .catch(err => console.log('Header加载失败'));
 
-        // 加载页脚
         fetch('components/footer.html')
             .then(response => response.text())
             .then(data => document.getElementById('footer-placeholder').innerHTML = data)
@@ -69,6 +127,4 @@
     </script>
 
 </body>
-    <!-- ===== 部分内容AI辅助 ===== -->
 </html>
-
