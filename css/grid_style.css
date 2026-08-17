@@ -49,7 +49,7 @@
         .item-left {
             grid-row: 1 / 2;      /* 从第1行开始，到第3行结束（跨两行） */
             grid-column: 1 / 3;   /* 位于第1列 */
-            background-image: url('../images/mapDL_left_bg.png'); /* ⭐ 替换为你的左侧大图 */
+            background-image: url('https://bee-reg-ab.imagency.cn/p/b21154bff8a10d9ae39c9876556562cd.png'); /* ⭐ 替换为你的左侧大图 */
         }
 
         /* ===== 4. 右上区块：第 2 列第 1 行 ===== */
@@ -63,7 +63,7 @@
         .item-right-bottom {
             grid-row: 2 / 3;
             grid-column: 1 / 2;
-            background-image: url('../images/mapDL_RB_bg.png'); /* ⭐ 替换为你的右下图片 */
+            background-image: url('https://bee-reg-ab.imagency.cn/p/74e1a74f8baeb7d7445e08f635f5d46d.png'); /* ⭐ 替换为你的右下图片 */
         }
 
         /* ===== 6. 文字叠加层（背景上的文字） ===== */
