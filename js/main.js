@@ -609,3 +609,18 @@ Promise.all([
 })();
 
 
+// 页面跳转淡出效果
+document.addEventListener('click', function(e) {
+    const target = e.target.closest('a');
+    // 只对本站内链接生效，排除外部链接、新窗口打开、下载等
+    if (target && target.href && target.href.startsWith(window.location.origin) && !target.target) {
+        e.preventDefault();
+        const href = target.href;
+        // 触发淡出
+        document.body.classList.add('fade-out');
+        // 等待动画结束后跳转（300ms 与 CSS 匹配）
+        setTimeout(() => {
+            window.location.href = href;
+        }, 300);
+    }
+});
