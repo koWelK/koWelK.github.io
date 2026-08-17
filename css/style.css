@@ -7,18 +7,19 @@
 
 /* ===== 导航栏外层 ===== */
 nav {
-    background: linear-gradient(to right, #4768bb, #3fa2e0);
+    background: #ffffff;
     padding: 0 20px; /* 左右内边距 */
 }
 
 /* ===== 导航栏容器（flex 父级） ===== */
 .nav-container {
+    font-family: "Times New Roman", "Georgia", "Songti SC", "SimSun", serif;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1200px;   /* 限制最大宽度，可选 */
+    max-width: 1920px;    /* 限制最大宽度，可选 */
     margin: 0 auto;      /* 水平居中（如果限制了宽度） */
-    height: 70px;        /* 固定高度，让 Logo 和菜单垂直居中 */
+    height: 120px;        /* 固定高度，让 Logo 和菜单垂直居中 */
 }
 
 /* ===== Logo 区域 ===== */
@@ -26,7 +27,7 @@ nav {
     flex-shrink: 0;      /* 防压缩 */
 }
 .logo img {
-    height: 50px;        /* 根据图片实际尺寸调整 */
+    height: 72px;        /* 根据图片实际尺寸调整 */
     display: block;
 }
 
@@ -36,15 +37,38 @@ nav {
     display: flex;
     gap: 30px;
 }
+.nav-container ul li {
+    position: relative;
+    padding: 0 16px;
+}
 .nav-container ul li a {
-    color: white;
+    position: relative;
+    color: #111111;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
     transition: color 0.2s;
+    padding: 8px 0;   /* 新增：给下划线留空间 */
 }
 .nav-container ul li a:hover {
-    color: #9ac9ff;
+    color: #111111;
+}
+
+.nav-container ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #111111;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.nav-container ul li a:hover::after {
+    transform: scaleX(1);
 }
 
 /* ===== 下拉菜单容器 ===== */
@@ -99,6 +123,17 @@ nav {
     border-radius: 0;
 }
 
+.nav-container ul li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.5px;
+    height: 40px;              /* 控制分隔线高度，比文字略短更精致 */
+    background: #d0d7de;       /* 浅灰色，与文字颜色协调 */
+}
+
 /* 第一个和最后一个子项加圆角（保持整体圆润） */
 .nav-container ul li .dropdown-menu li:first-child a {
     border-radius: 8px 8px 0 0;
@@ -106,9 +141,17 @@ nav {
 .nav-container ul li .dropdown-menu li:last-child a {
     border-radius: 0 0 8px 8px;
 }
+.nav-container .nav-download {
+    color: #2f4dd2 !important;   /* 你想改成的颜色，加 !important 确保覆盖 */
+}
 
 
-
+hr.divider {
+    border: none;
+    height: 1px;
+    background: #edeff1;
+    margin: 0;                 /* 去掉默认边距 */
+}
 
 
 
@@ -302,15 +345,22 @@ nav {
 
 footer {
     background-color: #2c3e50;
-    color: #ecf0f1;
-    padding: 20px 0;          /* 上下内边距 */
+    color: #fafcfd;
+    padding: 60px 0;          /* 上下内边距 */
     text-align: center;       /* 文字居中 */
-    font-size: 14px;
+    font-size: 14px;  
+    height: 192px;
     /*margin-top: 40px;         /* 与上方内容隔开一段距离（可选） */
 }
 
 .footer-container p {
-    margin: 2px 0;            /* 段落间距 */
+    margin: 4px 0;            /* 段落间距 */
+}
+
+.footer-container-author p {
+    margin: 36px 0;            /* 段落间距 */
+    font-weight: normal;
+        font-size: 16px; 
 }
 
 
@@ -886,7 +936,11 @@ footer {
 
 /* ===== 页面加载淡入动画 ===== */
 body {
-    animation: fadeIn 0.4s ease-in-out;
+    animation: fadeIn 0.2s ease-in-out;
+}
+/* 淡出动画（用于离开时） */
+body.fade-out {
+    animation: fadeOut 0.2s ease-in forwards;
 }
 
 @keyframes fadeIn {
@@ -894,6 +948,29 @@ body {
     100% { opacity: 1; }
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
 
 
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
+/* 应用动画的类（默认执行） */
+.fade-up {
+    animation: fadeUp 0.7s ease-out forwards;
+}
