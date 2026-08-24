@@ -1,0 +1,190 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f5f7fa;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== 导航栏和页脚占位（不压缩） ===== */
+#header-placeholder,
+#footer-placeholder {
+    flex-shrink: 0;
+}
+
+/* ===== 内容卡片（flex 撑满剩余高度，超出滚动） ===== */
+.product_page {
+    flex: 1;                         /* 撑满导航栏和页脚之间的剩余空间 */
+    max-width: 780px;
+    width: 100%;
+    margin: 36px auto 72px auto;               /* 上下间距 */
+    background: #ffffff;
+    padding: 48px 56px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    overflow-y: auto;                /* 内容过多时滚动 */
+    max-height: calc(100vh - 140px); /* 保留导航栏+页脚+间距的空间 */
+}
+
+/* ===== 标题 ===== */
+.product_page .h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+}
+
+.product_page .subtitle {
+    color: #888;
+    font-size: 15px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 16px;
+}
+
+/* ===== 二级标题 ===== */
+.product_page h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 28px 0 8px 0;
+    color: #111;
+}
+
+/* ===== 段落 ===== */
+.product_page p {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+/* ===== 列表 ===== */
+.product_page ul {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 12px 0;
+}
+.product_page ul li {
+    font-size: 15px;
+    color: #333;
+    padding: 4px 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+.product_page ul li:last-child {
+    border-bottom: none;
+}
+
+.product_page .label {
+    color: #888;
+    font-size: 14px;
+    min-width: 64px;
+}
+
+/* ===== 链接 ===== */
+.product_page a {
+    color: #1a1a1a;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: #ccc;
+    transition: text-decoration-color 0.2s;
+}
+.product_page a:hover {
+    text-decoration-color: #1a1a1a;
+}
+
+/* ===== 分割线 ===== */
+.product_page .sep {
+    border-top: 1px solid #eee;
+    margin: 32px 0 20px 0;
+}
+
+/* ===== 底部脚注 ===== */
+.product_page .footnote {
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 24px;
+    border-top: 1px solid #eee;
+    padding-top: 16px;
+}
+
+/* ===== 更新表格 ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 12px 0;
+    font-size: 15px;
+}
+th {
+    text-align: left;
+    font-weight: 600;
+    color: #555;
+    padding: 6px 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: top;
+}
+td:first-child {
+    white-space: nowrap;
+    padding-right: 24px;
+    color: #333;
+}
+td:last-child {
+    color: #333;
+}
+
+.version-col {
+    font-weight: 600;
+    color: #111;
+}
+.date-col {
+    color: #888;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+/* ===== 表格外层包裹（实现表格区域独立滚动） ===== */
+.table-wrapper {
+    max-height: 240px;
+    overflow-y: auto;
+    margin: 8px 0 12px 0;
+    border: 1px solid #f0f0f0;
+}
+
+/* ===== 手机适配 ===== */
+@media (max-width: 600px) {
+    body {
+        padding: 16px;             /* 手机端增加边距，避免贴边 */
+    }
+    .page {
+        padding: 24px 20px;
+        margin: 16px auto;
+        max-height: none;          /* 手机端取消高度限制，由内容撑开 */
+        overflow-y: visible;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    ul li {
+        flex-wrap: wrap;
+        gap: 2px;
+    }
+    td:first-child {
+        white-space: normal;
+    }
+    .table-wrapper {
+        max-height: 180px;         /* 手机端表格滚动区略微缩小 */
+    }
+}

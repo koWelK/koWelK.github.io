@@ -1,0 +1,15 @@
+{
+    "name": "OMSI 麓原",
+    "author": "680路 / koWel_22",
+    "help": "桃子味的大菠萝 / 御坂75900号",
+    "description": "架空地图 · 请勿过度联想。",
+    "downloads": [
+        { "type": "百度网盘", "link": "https://pan.baidu.com/s/1aQhCQeo7O85SBJWw3MF08w?pwd=preN", "extras": "提取码：preN" }
+    ],
+    "changelog": [
+        { "version": "0.3.6-Pre", "date": "2026-08-17", "details": "新增百合园地区" },
+        { "version": "0.3.5", "date": "2026-07-20", "details": "新增高思北地区" },
+        { "version": "0.3.2", "date": "2026-06-28", "details": "重建北麓村" },
+        { "version": "0.3.0", "date": "2026-06-16", "details": "内测开始" }
+    ]
+}

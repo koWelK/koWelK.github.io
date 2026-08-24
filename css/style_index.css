@@ -939,3 +939,13 @@ footer {
         font-size: 14px;
     }
 }
+
+/* 淡出动画（用于离开时） */
+body.fade-out {
+    animation: fadeOut 0.3s ease-in forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}

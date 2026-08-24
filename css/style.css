@@ -152,6 +152,12 @@ hr.divider {
     background: #edeff1;
     margin: 0;                 /* 去掉默认边距 */
 }
+hr.divider_dark {
+    border: none;
+    height: 1px;
+    background: #4e6378;
+    margin: 0;                 /* 去掉默认边距 */
+}
 
 
 
