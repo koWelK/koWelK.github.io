@@ -1,0 +1,235 @@
+/* ============================================================
+   help.css — 帮助中心专用样式
+   所有选择器限定在 .content-page 内部，避免污染全局
+   ============================================================ */
+
+/* 页面背景 */
+body {
+    background: #f5f7fa;
+}
+
+/* 内容卡片 — 白底，克制阴影 */
+.content-page {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+    border: 1px solid #eaeef3;
+    padding: 52px 64px 48px 64px;
+}
+
+/* 主标题 — 硬朗、清晰 */
+.content-page h1 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #0b1a2e;
+    letter-spacing: -0.3px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #dce3ec;
+    position: relative;
+}
+.content-page h1::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 64px;
+    height: 2px;
+    background: #1e3a6b;
+}
+
+/* 二级标题 — 带编号 */
+.content-page h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a304a;
+    margin: 36px 0 14px 0;
+    padding-left: 0;
+    border-left: none;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+.content-page h2 .num {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a6f8f;
+    background: #eef3f8;
+    padding: 0 10px;
+    border-radius: 20px;
+    line-height: 26px;
+    letter-spacing: 0.3px;
+}
+
+/* ============================================================
+   按钮系统 — 卡片式链接（覆盖全局返回按钮样式）
+   ============================================================ */
+
+/* 按钮容器 */
+.content-page .btn-back-wrapper {
+    display: inline-block;
+    margin: 4px 8px 4px 0;
+    text-align: left;
+}
+
+/* 按钮本体 */
+.content-page .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 24px;
+    background: #f8fafc;
+    color: #1a304a;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    transition: all 0.2s ease;
+    letter-spacing: 0.2px;
+    line-height: 1.4;
+    width: auto;
+    margin: 0;
+    max-width: none;
+}
+.content-page .btn-back:hover {
+    background: #edf2f7;
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transform: translateY(-1px);
+}
+.content-page .btn-back:active {
+    transform: scale(0.98);
+    background: #e2e8f0;
+    box-shadow: none;
+}
+
+/* 按钮图标 — 纯 CSS 右箭头 */
+.content-page .btn-back .btn-back-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    position: relative;
+    opacity: 0.7;
+    transition: opacity 0.2s, transform 0.2s;
+}
+.content-page .btn-back .btn-back-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: #4a6f8f;
+    transform: translateY(-50%);
+}
+.content-page .btn-back .btn-back-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    width: 6px;
+    height: 6px;
+    border-top: 1.5px solid #4a6f8f;
+    border-right: 1.5px solid #4a6f8f;
+    transform: translateY(-50%) rotate(45deg);
+}
+.content-page .btn-back:hover .btn-back-icon {
+    opacity: 1;
+    transform: translateX(2px);
+}
+.content-page .btn-back:hover .btn-back-icon::before,
+.content-page .btn-back:hover .btn-back-icon::after {
+    border-color: #1e3a6b;
+}
+
+/* 按钮组 */
+.content-page .tools-group,
+.content-page .authors-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin: 8px 0 12px 0;
+}
+.content-page .authors-group {
+    gap: 12px 20px;
+}
+
+/* 参考链接 — 引用样式 */
+.content-page .ref-link {
+    display: inline-block;
+    font-size: 13px;
+    color: #6a8aa8;
+    margin-top: 4px;
+    margin-left: 4px;
+    padding-left: 12px;
+    border-left: 2px solid #dce3ec;
+}
+.content-page .ref-link a {
+    color: #1e3a6b;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+.content-page .ref-link a:hover {
+    border-bottom-color: #1e3a6b;
+}
+
+/* 底部时间戳 */
+.content-page p:last-of-type {
+    text-indent: 0;
+    color: #7a94ae;
+    font-size: 13px;
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid #eaeef3;
+    text-align: right;
+    letter-spacing: 0.2px;
+    font-weight: 400;
+}
+.content-page p:last-of-type::before {
+    content: "⌁ ";
+    font-size: 14px;
+}
+
+/* ============================================================
+   响应式
+   ============================================================ */
+@media (max-width: 640px) {
+    .content-page {
+        padding: 28px 20px 32px 20px;
+        margin: 16px 12px;
+        border-radius: 6px;
+    }
+    .content-page h1 {
+        font-size: 24px;
+    }
+    .content-page h2 {
+        font-size: 18px;
+        flex-wrap: wrap;
+    }
+    .content-page h2 .num {
+        font-size: 12px;
+        line-height: 22px;
+    }
+    .content-page .btn-back {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+    .content-page .btn-back-wrapper {
+        margin: 4px 4px 4px 0;
+    }
+    .content-page .tools-group {
+        gap: 6px 8px;
+    }
+    .content-page .authors-group {
+        gap: 8px 12px;
+    }
+    .content-page .ref-link {
+        font-size: 12px;
+        padding-left: 8px;
+    }
+}

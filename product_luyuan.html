@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>麓原 · 地图作品</title>
+
+    <!-- ===== 全局样式（导航栏/页脚） ===== -->
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- ===== 本页面独立样式 ===== -->
+    <link rel="stylesheet" href="../css/productN.css" />
+</head>
+<body>
+
+    <!-- ===== 加载覆盖层 ===== -->
+    <div id="product-loader" class="product-loader">
+        <div class="product-loader-inner">
+            <div class="product-spinner"></div>
+            <p class="product-loading-text">加载中...</p>
+            <div class="product-progress-track">
+                <div class="product-progress-fill" id="progressFill"></div>
+            </div>
+            <p class="product-progress-label" id="progressLabel">0%</p>
+        </div>
+    </div>
+
+    <!-- ===== 导航栏 ===== -->
+    <div id="header-placeholder"></div>
+
+    <!-- ===== 主内容 ===== -->
+    <main class="product-page">
+
+        <!-- 封面区 -->
+        <section class="product-cover">
+            <div class="product-cover-left">
+                <div class="product-cover-inner">
+                    <div class="product-tag">OMSI 2 · 架空地图</div>
+                    <h1>麓原</h1>
+                    <p class="product-sub">
+                        山岳、海岸、城市。<br />
+                        希望您可以在这里忘却现实中的烦恼。
+                    </p>
+                    <div class="product-meta">
+                        <span><span class="product-label">作者</span> 680路 / koWel_22</span>
+                        <span><span class="product-label">版本</span> 0.3.6</span>
+                        <span><span class="product-label">更新</span> 2026.08.17</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-cover-right">
+                <img src="images\3.png" alt="麓原封面" />
+            </div>
+        </section>
+
+        <!-- 介绍区 ① -->
+        <section class="product-intro product-animate-up delay-1" data-delay="1">
+            <div class="product-intro-image">
+                <img src="images\many_company.png" alt="线网规模" />
+            </div>
+            <div class="product-intro-text">
+                <div class="product-intro-inner">
+                    <div class="product-number">01</div>
+                    <h2>线网规模</h2>
+                    <p>
+                        历时8个月，我们制作出了200+地块的地图。
+                        地图中3家公司共运营24条线路，100+个车站。我们将会继续扩张。
+                        欢迎您加入我们！
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 介绍区 ② -->
+        <section class="product-intro product-intro-reverse product-animate-up delay-2" data-delay="2">
+            <div class="product-intro-image">
+                <img src="images\6.png" alt="山麓" />
+            </div>
+            <div class="product-intro-text">
+                <div class="product-intro-inner">
+                    <div class="product-number">02</div>
+                    <h2>山麓</h2>
+                    <p>
+                        在麓原北部的群山中，公路蜿蜒其间。其他地区也有丘陵分别。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 介绍区 ③ -->
+        <section class="product-intro product-animate-up delay-3" data-delay="3">
+            <div class="product-intro-image">
+                <img src="images\bus_signals.png" alt="公交优先" />
+            </div>
+            <div class="product-intro-text">
+                <div class="product-intro-inner">
+                    <div class="product-number">03</div>
+                    <h2>公交优先</h2>
+                    <p>
+                        在金庄与北麓之间，依靠公交优先信号，可以实现全程不停车行驶，畅通无阻。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 介绍区 ④ -->
+        <section class="product-intro product-intro-reverse product-animate-up delay-4" data-delay="4">
+            <div class="product-intro-image">
+                <img src="images\7.png" alt="杂项" />
+            </div>
+            <div class="product-intro-text">
+                <div class="product-intro-inner">
+                    <div class="product-number">04</div>
+                    <h2>永远免费发布</h2>
+                    <p>
+                        本地图将永远免费发布。
+                        欢迎您提出宝贵的建议！
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 下载区 ===== -->
+        <section id="download-section" class="product-download product-animate-up delay-4">
+            <div class="download-inner">
+                <!-- 头部 -->
+                <div class="download-header">
+                    <span class="download-badge">下载</span>
+                    <h2>获取麓原地图</h2>
+                    <p class="download-sub">
+                        开启您的麓原之旅。<br />
+                        欢迎反馈！。
+                    </p>
+                </div>
+
+                <!-- 卡片 1：地图下载（居中） -->
+                <div class="download-card primary">
+                    <h3>地图本体</h3>
+                    <p class="version-info">最新版本 0.3.6 · 2026.08.17</p>
+                    <div class="card-links">
+                        <a href="#" class="btn-download">百度网盘 (提取码: preN)</a>
+                        <a href="#" class="btn-download secondary">备用下载</a>
+                    </div>
+                    <p class="author-credit">地图作者：680路 / koWel_22</p>
+                </div>
+
+                <!-- 卡片 3：游玩须知 -->
+                <div class="download-card">
+                    <div class="card-icon"></div>
+                    <h3>游玩须知</h3>
+                    <ul class="rules-list">
+                        <li>请确保已安装所有前置插件，否则可能出现景物缺失或蓝天白云。</li>
+                        <li>为了节省您的时间，建议您在打开地图前使用Bluesky或OMSI Map Tool检查有无缺失文件</li>
+                        <li>如遇疑问，您可前往导航栏 更多-帮助中心 中寻找答案及联系作者。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== 页脚 ===== -->
+    <div id="footer-placeholder"></div>
+
+    <!-- ===== 脚本 ===== -->
+    <script src="../js/main.js"></script>
+    <script src="../js/productN.js"></script>
+
+    <script>
+        // 加载导航栏和页脚
+        fetch('../components/header.html')
+            .then(r => r.text())
+            .then(d => document.getElementById('header-placeholder').innerHTML = d)
+            .catch(() => console.warn('Header 加载失败'));
+
+        fetch('../components/footer.html')
+            .then(r => r.text())
+            .then(d => document.getElementById('footer-placeholder').innerHTML = d)
+            .catch(() => console.warn('Footer 加载失败'));
+    </script>
+
+</body>
+</html>

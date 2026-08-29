@@ -1,0 +1,622 @@
+/* ============================================================
+   product.css — 作品展示页独立样式
+   所有选择器以 .product- 开头，避免与全局 style.css 冲突
+   ============================================================ */
+
+/* ===== 加载覆盖层 ===== */
+.product-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f6f8fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    pointer-events: none;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.product-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.product-loader-inner {
+    text-align: center;
+}
+
+.product-spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid #e0e4e8;
+    border-top-color: #4a7cf7;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    animation: product-spin 0.8s linear infinite;
+}
+
+@keyframes product-spin {
+    to { transform: rotate(360deg); }
+}
+
+.product-loading-text {
+    font-size: 14px;
+    color: #5a6f86;
+    margin-bottom: 16px;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.product-progress-track {
+    width: 200px;
+    height: 3px;
+    background: #e0e4e8;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.product-progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #4a7cf7;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.product-progress-label {
+    font-size: 13px;
+    color: #8a9cb0;
+    margin-top: 8px;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* ===== 页面主容器 ===== */
+.product-page {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #1e2a36;
+    background: #f6f8fa;
+    overflow-x: hidden;
+}
+
+/* ============================================================
+   动画关键帧 — 降低位移距离，减少合成压力
+   ============================================================ */
+@keyframes product-fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 初始状态：透明且下移 */
+.product-animate-up {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* 触发可见 */
+.product-animate-up.is-visible {
+    animation: product-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 延迟变体 */
+.product-animate-up.delay-1.is-visible { animation-delay: 0.15s; }
+.product-animate-up.delay-2.is-visible { animation-delay: 0.30s; }
+.product-animate-up.delay-3.is-visible { animation-delay: 0.45s; }
+.product-animate-up.delay-4.is-visible { animation-delay: 0.60s; }
+
+/* ============================================================
+   封面区 — 高度 = 视口高度 - 导航栏高度
+   ============================================================ */
+.product-cover {
+    display: flex;
+    height: calc(100dvh - 120px);
+    width: 100%;
+    background: #ffffff;
+    min-height: 400px;
+}
+
+.product-cover-left {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    padding: 60px 40px;
+}
+
+.product-cover-inner {
+    width: 100%;
+    max-width: 540px;
+    padding: 0 20px;
+}
+
+.product-tag {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #4a7cf7;
+    border-left: 3px solid #4a7cf7;
+    padding-left: 16px;
+    margin-bottom: 24px;
+}
+
+.product-cover-left h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+    color: #0f1a26;
+}
+
+.product-sub {
+    font-size: 18px;
+    color: #4a5c6e;
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+
+.product-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px 48px;
+    font-size: 14px;
+    color: #5a6f86;
+}
+
+.product-meta span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-label {
+    color: #8a9cb0;
+    font-weight: 450;
+}
+
+.product-cover-right {
+    flex: 1 1 50%;
+    background: #f0f3f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-cover-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ============================================================
+   介绍区
+   ============================================================ */
+.product-intro {
+    display: flex;
+    height: 50vh;
+    width: 100%;
+    background: #ffffff;
+    border-top: 1px solid #eef2f6;
+    margin-top: 4px;
+}
+
+.product-intro-image {
+    flex: 0 0 33.333%;
+    overflow: hidden;
+    background: #f0f3f7;
+}
+.product-intro-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-intro-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 40px;
+}
+
+.product-intro-inner {
+    width: 100%;
+    max-width: 580px;
+    padding: 0 20px;
+}
+
+.product-number {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a7cf7;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.product-intro-text h2 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
+    color: #0f1a26;
+}
+
+.product-intro-text p {
+    font-size: 16px;
+    color: #3d5268;
+    line-height: 1.8;
+}
+
+/* 图片在右 */
+.product-intro-reverse {
+    flex-direction: row-reverse;
+}
+
+/* ============================================================
+   封面文字上移（延迟后触发）
+   ============================================================ */
+.product-cover-left.cover-shifted .product-cover-inner {
+    transform: translateY(-16px);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================
+   “了解更多”按钮样式
+   ============================================================ */
+.product-more-btn {
+    margin-top: 32px;
+    text-align: left;
+}
+
+.product-more-button {
+    display: inline-block;
+    padding: 10px 28px;
+    background: #ffffff;
+    color: #373737;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    letter-spacing: 0.3px;
+    border: 1px solid #c2c2c2;
+}
+.product-more-button:hover {
+    background: #c2c2c2;
+}
+.product-more-button:active {
+    transform: scale(0.96);
+}
+
+/* ============================================================
+   下载区 — 修复间距与对齐
+   ============================================================ */
+.product-download {
+    width: 100%;
+    background: #ffffff;
+    border-top: 1px solid #eef2f6;
+    padding: 100px 40px 100px;
+}
+
+.download-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* 头部 */
+.download-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+.download-badge {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #4a7cf7;
+    background: #eef4ff;
+    padding: 4px 16px;
+    border-radius: 30px;
+    margin-bottom: 12px;
+}
+.download-header h2 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #0f1a26;
+    margin-bottom: 10px;
+}
+.download-sub {
+    font-size: 16px;
+    color: #4a5c6e;
+    line-height: 1.7;
+    max-width: 100%;          /* 移除宽度限制，确保居中 */
+    text-align: center;       /* 显式居中 */
+}
+
+/* 卡片网格 */
+.download-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+/* 主卡片（地图下载）占两列，居中 */
+.download-card.primary {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+.download-card.primary .card-links {
+    justify-content: center;
+}
+
+/* 通用卡片 */
+.download-card {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 28px 32px;
+    border: 1px solid #eef2f6;
+    transition: box-shadow 0.2s;
+}
+.download-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.download-card .card-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+.download-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0f1a26;
+    margin-bottom: 4px;
+}
+.download-card .card-desc {
+    font-size: 15px;
+    color: #4a5c6e;
+    margin-bottom: 16px;
+}
+
+/* 版本信息 — 居中 */
+.version-info {
+    font-size: 15px;
+    color: #4a5c6e;
+    margin-bottom: 16px;
+    text-align: center;       /* 显式居中 */
+}
+
+/* 作者信息 */
+.author-credit {
+    font-size: 14px;
+    color: #7a8fa0;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #eef2f6;
+    text-align: center;       /* 居中 */
+}
+
+/* 下载链接 */
+.card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+.btn-download {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+    background: #4a7cf7;
+    color: #ffffff;
+}
+.btn-download:hover {
+    background: #3a66d6;
+}
+.btn-download.secondary {
+    background: #eef2f7;
+    color: #1a2f4a;
+}
+.btn-download.secondary:hover {
+    background: #dce2ea;
+}
+.btn-download:active {
+    transform: scale(0.96);
+}
+
+/* 前置插件 — 改为列表样式，更宽松 */
+.prereq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 4px;
+}
+.prereq-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f2f5;
+    font-size: 15px;
+}
+.prereq-item .prereq-name {
+    color: #1a2f4a;
+    min-width: 120px;
+}
+.prereq-item .prereq-author {
+    color: #4a5c6e;
+    font-size: 14px;
+    flex: 1;
+    text-align: left;
+    padding-left: 12px;
+}
+.prereq-item .prereq-ver {
+    color: #7a8fa0;
+    font-size: 14px;
+}
+.prereq-item:last-child {
+    border-bottom: none;
+}
+
+/* 须知列表 */
+.rules-list {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0;
+}
+.rules-list li {
+    padding: 8px 0 8px 28px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%234a7cf7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>') left center no-repeat;
+    background-size: 18px;
+    background-position: 0 9px;
+    font-size: 14px;
+    color: #2c3e50;
+    line-height: 1.6;
+    border-bottom: 1px solid #f5f7fa;
+}
+.rules-list li:last-child {
+    border-bottom: none;
+}
+.rules-list li code {
+    background: #eef2f7;
+    padding: 0 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: monospace;
+}
+
+/* ===== 手机端适配 ===== */
+@media (max-width: 768px) {
+    .product-download {
+        padding: 60px 20px 64px;
+    }
+    .download-header h2 {
+        font-size: 26px;
+    }
+    .download-cards {
+        grid-template-columns: 1fr;
+    }
+    .download-card.primary {
+        grid-column: 1 / 2;
+    }
+    .download-card {
+        padding: 20px 18px;
+    }
+    .prereq-item {
+        font-size: 14px;
+    }
+    .prereq-item .prereq-ver {
+        font-size: 13px;
+    }
+    .card-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-download {
+        width: 100%;
+        text-align: center;
+    }
+    .download-sub {
+        font-size: 15px;
+    }
+    .rules-list li {
+        font-size: 14px;
+    }
+    .product-cover {
+        height: calc(100dvh - 60px);
+        min-height: 400px;
+        flex-direction: column;
+    }
+    .product-cover-left {
+        flex: 1 1 auto;
+        padding: 48px 24px 32px 24px;
+        order: 1;
+    }
+    .product-cover-left h1 {
+        font-size: 34px;
+    }
+    .product-cover-inner {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    .product-cover-right {
+        flex: 1 1 auto;
+        min-height: 200px;
+        order: 2;
+        background: transparent;
+    }
+    .product-cover-right img {
+        height: auto;
+        width: 100%;
+        display: block;
+    }
+
+    .product-intro {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+        margin-top: 0;
+    }
+    .product-intro-text {
+        order: 1;
+        padding: 28px 20px 16px 20px;
+        width: 100%;
+        flex: 0 0 auto;
+    }
+    .product-intro-inner {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    .product-intro-text h2 {
+        font-size: 24px;
+    }
+    .product-intro-text p {
+        font-size: 15px;
+    }
+    .product-intro-image {
+        order: 2;
+        flex: 0 0 auto;
+        width: 100%;
+        background: transparent;
+    }
+    .product-intro-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .product-intro-reverse {
+        flex-direction: column;
+    }
+    .product-intro-reverse .product-intro-text {
+        order: 1;
+    }
+    .product-intro-reverse .product-intro-image {
+        order: 2;
+    }
+
+    .product-cover-left.cover-shifted .product-cover-inner {
+        transform: translateY(-8px);
+    }
+    .product-more-button {
+        font-size: 14px;
+        padding: 8px 22px;
+    }
+}
